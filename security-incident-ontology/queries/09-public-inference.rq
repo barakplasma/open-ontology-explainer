@@ -1,0 +1,3 @@
+PREFIX schema: <https://schema.org/>
+PREFIX ex: <https://example.org/demo/>
+ASK { ex:IsolateLaptop a schema:Action }

@@ -1,0 +1,6 @@
+oo-scope/1
+selector	whole-store
+semantics_version	temporal/2
+default_graph	true
+complete	true
+graph	*

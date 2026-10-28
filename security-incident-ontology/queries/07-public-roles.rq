@@ -1,0 +1,8 @@
+PREFIX schema: <https://schema.org/>
+PREFIX ir: <https://example.org/incident#>
+PREFIX ex: <https://example.org/demo/>
+SELECT ?name ?role WHERE {
+  ?assignment a schema:OrganizationRole ;
+    schema:member ?person ; schema:roleName ?role ; ir:forIncident ex:INC001 .
+  ?person schema:name ?name .
+} ORDER BY ?role

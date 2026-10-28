@@ -1,0 +1,11 @@
+sequenceDiagram
+    autonumber
+    participant you as You
+    participant schema as Schema.org
+    participant prov as W3C PROV-O
+    participant model as Your RDF model
+    you->>schema: Choose common terms
+    schema-->>model: Reuse qualified roles
+    you->>prov: Choose provenance terms
+    you->>model: Add incident scope
+    you->>model: Pin local definitions

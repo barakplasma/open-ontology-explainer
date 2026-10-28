@@ -1,0 +1,209 @@
+@prefix ir: <https://example.org/incident#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ir:EndpointIsolationAction a owl:Class ;
+    rdfs:label "Endpoint isolation" ;
+    rdfs:subClassOf ir:ContainmentAction .
+
+ir:IncidentOntology a owl:Ontology ;
+    rdfs:label "Security incident learning example" ;
+    rdfs:comment "Fictional organizational policies, not a security standard." .
+
+ir:ServicePauseAction a owl:Class ;
+    rdfs:label "Business service pause" ;
+    rdfs:subClassOf ir:ContainmentAction .
+
+ir:Workstation a owl:Class ;
+    rdfs:label "Workstation" ;
+    rdfs:subClassOf ir:Asset,
+        schema:Product .
+
+ir:affectsAsset a owl:ObjectProperty ;
+    rdfs:label "affects asset" ;
+    rdfs:domain ir:SecurityIncident ;
+    rdfs:range ir:Asset .
+
+ir:approvedBy a owl:ObjectProperty ;
+    rdfs:label "decision made by assignment" ;
+    rdfs:domain ir:Approval ;
+    rdfs:range ir:IncidentAssignment .
+
+ir:assertedBy a owl:ObjectProperty ;
+    rdfs:label "asserted by assignment" ;
+    rdfs:domain ir:Finding ;
+    rdfs:range ir:IncidentAssignment .
+
+ir:assignedActor a owl:ObjectProperty ;
+    rdfs:label "assigned actor" ;
+    rdfs:domain ir:IncidentAssignment ;
+    rdfs:range ir:Actor .
+
+ir:assignedRole a owl:ObjectProperty ;
+    rdfs:label "assigned role" ;
+    rdfs:domain ir:IncidentAssignment ;
+    rdfs:range ir:Role .
+
+ir:collectedBy a owl:ObjectProperty ;
+    rdfs:label "collected by assignment" ;
+    rdfs:domain ir:Evidence ;
+    rdfs:range ir:IncidentAssignment .
+
+ir:decision a owl:DatatypeProperty ;
+    rdfs:label "decision" ;
+    rdfs:domain ir:Approval ;
+    rdfs:range xsd:string .
+
+ir:detectedAt a owl:DatatypeProperty ;
+    rdfs:label "detected at" ;
+    rdfs:domain ir:SecurityIncident ;
+    rdfs:range xsd:dateTime .
+
+ir:executor a owl:ObjectProperty ;
+    rdfs:label "designated executor assignment" ;
+    rdfs:domain ir:ResponseAction ;
+    rdfs:range ir:IncidentAssignment .
+
+ir:findingStatus a owl:DatatypeProperty ;
+    rdfs:label "finding status" ;
+    rdfs:domain ir:Finding ;
+    rdfs:range xsd:string .
+
+ir:forAction a owl:ObjectProperty ;
+    rdfs:label "decision about action" ;
+    rdfs:domain ir:Approval ;
+    rdfs:range ir:ResponseAction .
+
+ir:forIncident a owl:ObjectProperty ;
+    rdfs:label "in incident" ;
+    rdfs:range ir:SecurityIncident .
+
+ir:governedBy a owl:ObjectProperty ;
+    rdfs:label "governed by policy" ;
+    rdfs:domain ir:ResponseAction ;
+    rdfs:range ir:AuthorizationPolicy .
+
+ir:memberOf a owl:ObjectProperty ;
+    rdfs:label "member of" ;
+    rdfs:domain schema:Person ;
+    rdfs:range schema:Organization .
+
+ir:observedAt a owl:DatatypeProperty ;
+    rdfs:label "observed at" ;
+    rdfs:domain ir:Evidence ;
+    rdfs:range xsd:dateTime .
+
+ir:proposedBy a owl:ObjectProperty ;
+    rdfs:label "proposed by assignment" ;
+    rdfs:domain ir:ResponseAction ;
+    rdfs:range ir:IncidentAssignment .
+
+ir:recordedAt a owl:DatatypeProperty ;
+    rdfs:label "decision recorded at" ;
+    rdfs:domain ir:Approval ;
+    rdfs:range xsd:dateTime ;
+    rdfs:subPropertyOf prov:generatedAtTime .
+
+ir:requiredApproverRole a owl:ObjectProperty ;
+    rdfs:label "requires decision from role" ;
+    rdfs:domain ir:AuthorizationPolicy ;
+    rdfs:range ir:Role .
+
+ir:requiredExecutorRole a owl:ObjectProperty ;
+    rdfs:label "requires executor role" ;
+    rdfs:domain ir:AuthorizationPolicy ;
+    rdfs:range ir:Role .
+
+ir:severity a owl:DatatypeProperty ;
+    rdfs:label "severity" ;
+    rdfs:domain ir:SecurityIncident ;
+    rdfs:range xsd:string .
+
+ir:sourceId a owl:DatatypeProperty ;
+    rdfs:label "evidence source identifier" ;
+    rdfs:domain ir:Evidence ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf schema:identifier .
+
+ir:statement a owl:DatatypeProperty ;
+    rdfs:label "finding statement" ;
+    rdfs:domain ir:Finding ;
+    rdfs:range xsd:string .
+
+ir:status a owl:DatatypeProperty ;
+    rdfs:label "incident status" ;
+    rdfs:domain ir:SecurityIncident ;
+    rdfs:range xsd:string .
+
+ir:supportedBy a owl:ObjectProperty ;
+    rdfs:label "supported by evidence" ;
+    rdfs:domain ir:Finding ;
+    rdfs:range ir:Evidence ;
+    rdfs:subPropertyOf prov:wasDerivedFrom .
+
+ir:target a owl:ObjectProperty ;
+    rdfs:label "action target" ;
+    rdfs:domain ir:ResponseAction ;
+    rdfs:subPropertyOf schema:object .
+
+ir:threatensService a owl:ObjectProperty ;
+    rdfs:label "puts service at risk" ;
+    rdfs:domain ir:SecurityIncident ;
+    rdfs:range ir:BusinessService .
+
+ir:usedBy a owl:ObjectProperty ;
+    rdfs:label "used by" ;
+    rdfs:domain ir:Asset ;
+    rdfs:range schema:Person .
+
+ir:usedFor a owl:ObjectProperty ;
+    rdfs:label "used to access service" ;
+    rdfs:domain ir:Asset ;
+    rdfs:range ir:BusinessService .
+
+ir:Actor a owl:Class ;
+    rdfs:label "Actor" .
+
+ir:BusinessService a owl:Class ;
+    rdfs:label "Business service" ;
+    rdfs:subClassOf schema:Service .
+
+ir:ContainmentAction a owl:Class ;
+    rdfs:label "Containment action" ;
+    rdfs:subClassOf ir:ResponseAction .
+
+ir:AuthorizationPolicy a owl:Class ;
+    rdfs:label "Example approval policy" .
+
+ir:Role a owl:Class ;
+    rdfs:label "Incident role" .
+
+ir:Approval a owl:Class ;
+    rdfs:label "Recorded decision about one action" ;
+    rdfs:subClassOf prov:Entity .
+
+ir:Asset a owl:Class ;
+    rdfs:label "IT asset" .
+
+ir:Evidence a owl:Class ;
+    rdfs:label "Evidence record" ;
+    rdfs:subClassOf prov:Entity .
+
+ir:Finding a owl:Class ;
+    rdfs:label "Finding or hypothesis" ;
+    rdfs:subClassOf prov:Entity .
+
+ir:ResponseAction a owl:Class ;
+    rdfs:label "Proposed response action" ;
+    rdfs:subClassOf schema:Action .
+
+ir:SecurityIncident a owl:Class ;
+    rdfs:label "Security incident" .
+
+ir:IncidentAssignment a owl:Class ;
+    rdfs:label "Actor assigned a role in one incident" ;
+    rdfs:subClassOf schema:OrganizationRole .
+

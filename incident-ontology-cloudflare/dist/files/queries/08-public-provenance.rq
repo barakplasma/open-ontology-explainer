@@ -1,0 +1,10 @@
+PREFIX schema: <https://schema.org/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX ir: <https://example.org/incident#>
+PREFIX ex: <https://example.org/demo/>
+SELECT ?status ?source ?author WHERE {
+  ex:PossibleExfiltration prov:wasDerivedFrom ?evidence ;
+    prov:wasAttributedTo ?person ; ir:findingStatus ?status .
+  ?evidence schema:identifier ?source .
+  ?person schema:name ?author .
+}

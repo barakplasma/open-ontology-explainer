@@ -1,0 +1,105 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+schema:Action a rdfs:Class ;
+    rdfs:label "Action" ;
+    rdfs:subClassOf schema:Thing .
+
+schema:ActionStatusType a rdfs:Class ;
+    rdfs:label "ActionStatusType" ;
+    rdfs:subClassOf schema:StatusEnumeration .
+
+schema:Enumeration a rdfs:Class ;
+    rdfs:label "Enumeration" ;
+    rdfs:subClassOf schema:Intangible .
+
+schema:Intangible a rdfs:Class ;
+    rdfs:label "Intangible" ;
+    rdfs:subClassOf schema:Thing .
+
+schema:Organization a rdfs:Class ;
+    rdfs:label "Organization" ;
+    rdfs:subClassOf schema:Thing .
+
+schema:OrganizationRole a rdfs:Class ;
+    rdfs:label "OrganizationRole" ;
+    rdfs:subClassOf schema:Role .
+
+schema:Person a rdfs:Class ;
+    rdfs:label "Person" ;
+    rdfs:subClassOf schema:Thing .
+
+schema:Product a rdfs:Class ;
+    rdfs:label "Product" ;
+    rdfs:subClassOf schema:Thing .
+
+schema:Role a rdfs:Class ;
+    rdfs:label "Role" ;
+    rdfs:subClassOf schema:Intangible .
+
+schema:Service a rdfs:Class ;
+    rdfs:label "Service" ;
+    rdfs:subClassOf schema:Intangible .
+
+schema:StatusEnumeration a rdfs:Class ;
+    rdfs:label "StatusEnumeration" ;
+    rdfs:subClassOf schema:Enumeration .
+
+schema:Thing a rdfs:Class ;
+    rdfs:label "Thing" .
+
+prov:generatedAtTime a owl:DatatypeProperty ;
+    rdfs:label "generatedAtTime" ;
+    rdfs:domain prov:Entity ;
+    rdfs:range xsd:dateTime .
+
+prov:wasAttributedTo a owl:ObjectProperty ;
+    rdfs:label "wasAttributedTo" ;
+    rdfs:domain prov:Entity ;
+    rdfs:range prov:Agent ;
+    rdfs:subPropertyOf prov:wasInfluencedBy .
+
+prov:wasDerivedFrom a owl:ObjectProperty ;
+    rdfs:label "wasDerivedFrom" ;
+    rdfs:domain prov:Entity ;
+    rdfs:range prov:Entity ;
+    rdfs:subPropertyOf prov:wasInfluencedBy .
+
+schema:PotentialActionStatus a schema:ActionStatusType ;
+    rdfs:label "PotentialActionStatus" .
+
+schema:actionStatus a rdf:Property ;
+    rdfs:label "actionStatus" .
+
+schema:agent a rdf:Property ;
+    rdfs:label "agent" .
+
+schema:identifier a rdf:Property ;
+    rdfs:label "identifier" .
+
+schema:member a rdf:Property ;
+    rdfs:label "member" .
+
+schema:name a rdf:Property ;
+    rdfs:label "name" ;
+    rdfs:subPropertyOf rdfs:label .
+
+schema:object a rdf:Property ;
+    rdfs:label "object" .
+
+schema:roleName a rdf:Property ;
+    rdfs:label "roleName" .
+
+prov:Agent a owl:Class ;
+    rdfs:label "Agent" .
+
+prov:wasInfluencedBy a owl:ObjectProperty ;
+    rdfs:label "wasInfluencedBy" .
+
+prov:Entity a owl:Class ;
+    rdfs:label "Entity" .
+

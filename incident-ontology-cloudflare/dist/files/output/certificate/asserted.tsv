@@ -1,0 +1,431 @@
+<https://example.org/demo/CEO>	<http://www.w3.org/2000/01/rdf-schema#comment>	"Makes major business tradeoffs within organizational policy."
+<https://example.org/demo/CEO>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<https://example.org/incident#Role>
+<https://example.org/demo/CEO>	<https://schema.org/name>	"CEO"
+<https://example.org/demo/CEO>	<http://www.w3.org/2000/01/rdf-schema#label>	"CEO"
+<https://example.org/demo/LegalAssignment>	<https://schema.org/roleName>	"Legal counsel"
+<https://example.org/demo/LegalAssignment>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<https://example.org/incident#IncidentAssignment>
+<https://example.org/demo/LegalAssignment>	<https://example.org/incident#assignedRole>	<https://example.org/demo/Legal>
+<https://example.org/demo/LegalAssignment>	<https://example.org/incident#assignedActor>	<https://example.org/demo/Lee>
+<https://example.org/demo/LegalAssignment>	<https://schema.org/member>	<https://example.org/demo/Lee>
+<https://example.org/demo/LegalAssignment>	<https://example.org/incident#forIncident>	<https://example.org/demo/INC001>
+<https://schema.org/Role>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2000/01/rdf-schema#Class>
+<https://schema.org/Role>	<http://www.w3.org/2000/01/rdf-schema#subClassOf>	<https://schema.org/Intangible>
+<https://schema.org/Role>	<http://www.w3.org/2000/01/rdf-schema#label>	"Role"
+<https://example.org/incident#recordedAt>	<http://www.w3.org/2000/01/rdf-schema#subPropertyOf>	<http://www.w3.org/ns/prov#generatedAtTime>
+<https://example.org/incident#recordedAt>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2002/07/owl#DatatypeProperty>
+<https://example.org/incident#recordedAt>	<http://www.w3.org/2000/01/rdf-schema#range>	<http://www.w3.org/2001/XMLSchema#dateTime>
+<https://example.org/incident#recordedAt>	<http://www.w3.org/2000/01/rdf-schema#domain>	<https://example.org/incident#Approval>
+<https://example.org/incident#recordedAt>	<http://www.w3.org/2000/01/rdf-schema#label>	"decision recorded at"
+<https://example.org/demo/PausePayroll>	<https://schema.org/agent>	<https://example.org/demo/Eli>
+<https://example.org/demo/PausePayroll>	<https://example.org/incident#executor>	<https://example.org/demo/ITAssignment>
+<https://example.org/demo/PausePayroll>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<https://example.org/incident#ServicePauseAction>
+<https://example.org/demo/PausePayroll>	<https://schema.org/name>	"Pause Payroll"
+<https://example.org/demo/PausePayroll>	<https://example.org/incident#target>	<https://example.org/demo/Payroll>
+<https://example.org/demo/PausePayroll>	<https://schema.org/actionStatus>	<https://schema.org/PotentialActionStatus>
+<https://example.org/demo/PausePayroll>	<https://example.org/incident#governedBy>	<https://example.org/demo/PayrollPausePolicy>
+<https://example.org/demo/PausePayroll>	<https://example.org/incident#forIncident>	<https://example.org/demo/INC001>
+<https://example.org/demo/PausePayroll>	<https://example.org/incident#proposedBy>	<https://example.org/demo/CommandAssignment>
+<https://example.org/demo/PausePayroll>	<http://www.w3.org/2000/01/rdf-schema#label>	"Pause Payroll"
+<https://schema.org/roleName>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#Property>
+<https://schema.org/roleName>	<http://www.w3.org/2000/01/rdf-schema#label>	"roleName"
+<https://example.org/incident#BusinessService>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2002/07/owl#Class>
+<https://example.org/incident#BusinessService>	<http://www.w3.org/2000/01/rdf-schema#subClassOf>	<https://schema.org/Service>
+<https://example.org/incident#BusinessService>	<http://www.w3.org/2000/01/rdf-schema#label>	"Business service"
+<https://schema.org/Person>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2000/01/rdf-schema#Class>
+<https://schema.org/Person>	<http://www.w3.org/2000/01/rdf-schema#subClassOf>	<https://schema.org/Thing>
+<https://schema.org/Person>	<http://www.w3.org/2000/01/rdf-schema#label>	"Person"
+<https://example.org/demo/UserAssignment>	<https://schema.org/roleName>	"End user"
+<https://example.org/demo/UserAssignment>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<https://example.org/incident#IncidentAssignment>
+<https://example.org/demo/UserAssignment>	<https://example.org/incident#assignedRole>	<https://example.org/demo/EndUser>
+<https://example.org/demo/UserAssignment>	<https://example.org/incident#assignedActor>	<https://example.org/demo/Alex>
+<https://example.org/demo/UserAssignment>	<https://schema.org/member>	<https://example.org/demo/Alex>
+<https://example.org/demo/UserAssignment>	<https://example.org/incident#forIncident>	<https://example.org/demo/INC001>
+<https://example.org/demo/Morgan>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<https://schema.org/Person>
+<https://example.org/demo/Morgan>	<https://schema.org/name>	"Morgan"
+<https://example.org/demo/Morgan>	<http://www.w3.org/2000/01/rdf-schema#label>	"Morgan"
+<https://example.org/incident#supportedBy>	<http://www.w3.org/2000/01/rdf-schema#subPropertyOf>	<http://www.w3.org/ns/prov#wasDerivedFrom>
+<https://example.org/incident#supportedBy>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2002/07/owl#ObjectProperty>
+<https://example.org/incident#supportedBy>	<http://www.w3.org/2000/01/rdf-schema#range>	<https://example.org/incident#Evidence>
+<https://example.org/incident#supportedBy>	<http://www.w3.org/2000/01/rdf-schema#domain>	<https://example.org/incident#Finding>
+<https://example.org/incident#supportedBy>	<http://www.w3.org/2000/01/rdf-schema#label>	"supported by evidence"
+<https://example.org/demo/IncidentCommander>	<http://www.w3.org/2000/01/rdf-schema#comment>	"Coordinates the incident, tasks and updates."
+<https://example.org/demo/IncidentCommander>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<https://example.org/incident#Role>
+<https://example.org/demo/IncidentCommander>	<https://schema.org/name>	"Incident commander"
+<https://example.org/demo/IncidentCommander>	<http://www.w3.org/2000/01/rdf-schema#label>	"Incident commander"
+<https://example.org/incident#approvedBy>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2002/07/owl#ObjectProperty>
+<https://example.org/incident#approvedBy>	<http://www.w3.org/2000/01/rdf-schema#range>	<https://example.org/incident#IncidentAssignment>
+<https://example.org/incident#approvedBy>	<http://www.w3.org/2000/01/rdf-schema#domain>	<https://example.org/incident#Approval>
+<https://example.org/incident#approvedBy>	<http://www.w3.org/2000/01/rdf-schema#label>	"decision made by assignment"
+<https://example.org/incident#requiredExecutorRole>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2002/07/owl#ObjectProperty>
+<https://example.org/incident#requiredExecutorRole>	<http://www.w3.org/2000/01/rdf-schema#range>	<https://example.org/incident#Role>
+<https://example.org/incident#requiredExecutorRole>	<http://www.w3.org/2000/01/rdf-schema#domain>	<https://example.org/incident#AuthorizationPolicy>
+<https://example.org/incident#requiredExecutorRole>	<http://www.w3.org/2000/01/rdf-schema#label>	"requires executor role"
+<https://schema.org/agent>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#Property>
+<https://schema.org/agent>	<http://www.w3.org/2000/01/rdf-schema#label>	"agent"
+<https://example.org/incident#assertedBy>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2002/07/owl#ObjectProperty>
+<https://example.org/incident#assertedBy>	<http://www.w3.org/2000/01/rdf-schema#range>	<https://example.org/incident#IncidentAssignment>
+<https://example.org/incident#assertedBy>	<http://www.w3.org/2000/01/rdf-schema#domain>	<https://example.org/incident#Finding>
+<https://example.org/incident#assertedBy>	<http://www.w3.org/2000/01/rdf-schema#label>	"asserted by assignment"
+<https://schema.org/Thing>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2000/01/rdf-schema#Class>
+<https://schema.org/Thing>	<http://www.w3.org/2000/01/rdf-schema#label>	"Thing"
+<https://example.org/demo/Payroll>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<https://example.org/incident#BusinessService>
+<https://example.org/demo/Payroll>	<https://schema.org/name>	"Payroll"
+<https://example.org/demo/Payroll>	<http://www.w3.org/2000/01/rdf-schema#label>	"Payroll"
+<https://example.org/demo/BusinessOwner>	<http://www.w3.org/2000/01/rdf-schema#comment>	"Explains service impact and helps validate recovery."
+<https://example.org/demo/BusinessOwner>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<https://example.org/incident#Role>
+<https://example.org/demo/BusinessOwner>	<https://schema.org/name>	"Payroll owner"
+<https://example.org/demo/BusinessOwner>	<http://www.w3.org/2000/01/rdf-schema#label>	"Payroll owner"
+<https://example.org/incident#affectsAsset>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2002/07/owl#ObjectProperty>
+<https://example.org/incident#affectsAsset>	<http://www.w3.org/2000/01/rdf-schema#range>	<https://example.org/incident#Asset>
+<https://example.org/incident#affectsAsset>	<http://www.w3.org/2000/01/rdf-schema#domain>	<https://example.org/incident#SecurityIncident>
+<https://example.org/incident#affectsAsset>	<http://www.w3.org/2000/01/rdf-schema#label>	"affects asset"
+<https://example.org/incident#IncidentAssignment>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2002/07/owl#Class>
+<https://example.org/incident#IncidentAssignment>	<http://www.w3.org/2000/01/rdf-schema#subClassOf>	<https://schema.org/OrganizationRole>
+<https://example.org/incident#IncidentAssignment>	<http://www.w3.org/2000/01/rdf-schema#label>	"Actor assigned a role in one incident"
+<https://example.org/demo/PayrollPausePolicy>	<https://example.org/incident#requiredExecutorRole>	<https://example.org/demo/ITResponder>
+<https://example.org/demo/PayrollPausePolicy>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<https://example.org/incident#AuthorizationPolicy>
+<https://example.org/demo/PayrollPausePolicy>	<https://schema.org/name>	"Example major service interruption policy"
+<https://example.org/demo/PayrollPausePolicy>	<https://example.org/incident#requiredApproverRole>	<https://example.org/demo/CEO>
+<https://example.org/demo/PayrollPausePolicy>	<http://www.w3.org/2000/01/rdf-schema#label>	"Example major service interruption policy"
+<https://example.org/incident#ServicePauseAction>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2002/07/owl#Class>
+<https://example.org/incident#ServicePauseAction>	<http://www.w3.org/2000/01/rdf-schema#subClassOf>	<https://example.org/incident#ContainmentAction>
+<https://example.org/incident#ServicePauseAction>	<http://www.w3.org/2000/01/rdf-schema#label>	"Business service pause"
+<https://schema.org/PotentialActionStatus>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<https://schema.org/ActionStatusType>
+<https://schema.org/PotentialActionStatus>	<http://www.w3.org/2000/01/rdf-schema#label>	"PotentialActionStatus"
+<http://www.w3.org/ns/prov#wasAttributedTo>	<http://www.w3.org/2000/01/rdf-schema#subPropertyOf>	<http://www.w3.org/ns/prov#wasInfluencedBy>
+<http://www.w3.org/ns/prov#wasAttributedTo>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2002/07/owl#ObjectProperty>
+<http://www.w3.org/ns/prov#wasAttributedTo>	<http://www.w3.org/2000/01/rdf-schema#range>	<http://www.w3.org/ns/prov#Agent>
+<http://www.w3.org/ns/prov#wasAttributedTo>	<http://www.w3.org/2000/01/rdf-schema#domain>	<http://www.w3.org/ns/prov#Entity>
+<http://www.w3.org/ns/prov#wasAttributedTo>	<http://www.w3.org/2000/01/rdf-schema#label>	"wasAttributedTo"
+<https://example.org/incident#executor>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2002/07/owl#ObjectProperty>
+<https://example.org/incident#executor>	<http://www.w3.org/2000/01/rdf-schema#range>	<https://example.org/incident#IncidentAssignment>
+<https://example.org/incident#executor>	<http://www.w3.org/2000/01/rdf-schema#domain>	<https://example.org/incident#ResponseAction>
+<https://example.org/incident#executor>	<http://www.w3.org/2000/01/rdf-schema#label>	"designated executor assignment"
+<https://example.org/demo/CISO>	<http://www.w3.org/2000/01/rdf-schema#comment>	"Makes security-risk decisions within organizational policy."
+<https://example.org/demo/CISO>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<https://example.org/incident#Role>
+<https://example.org/demo/CISO>	<https://schema.org/name>	"CISO"
+<https://example.org/demo/CISO>	<http://www.w3.org/2000/01/rdf-schema#label>	"CISO"
+<https://example.org/incident#usedFor>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2002/07/owl#ObjectProperty>
+<https://example.org/incident#usedFor>	<http://www.w3.org/2000/01/rdf-schema#range>	<https://example.org/incident#BusinessService>
+<https://example.org/incident#usedFor>	<http://www.w3.org/2000/01/rdf-schema#domain>	<https://example.org/incident#Asset>
+<https://example.org/incident#usedFor>	<http://www.w3.org/2000/01/rdf-schema#label>	"used to access service"
+<https://example.org/incident#usedBy>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2002/07/owl#ObjectProperty>
+<https://example.org/incident#usedBy>	<http://www.w3.org/2000/01/rdf-schema#range>	<https://schema.org/Person>
+<https://example.org/incident#usedBy>	<http://www.w3.org/2000/01/rdf-schema#domain>	<https://example.org/incident#Asset>
+<https://example.org/incident#usedBy>	<http://www.w3.org/2000/01/rdf-schema#label>	"used by"
+<https://schema.org/identifier>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#Property>
+<https://schema.org/identifier>	<http://www.w3.org/2000/01/rdf-schema#label>	"identifier"
+<http://www.w3.org/ns/prov#wasInfluencedBy>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2002/07/owl#ObjectProperty>
+<http://www.w3.org/ns/prov#wasInfluencedBy>	<http://www.w3.org/2000/01/rdf-schema#label>	"wasInfluencedBy"
+<https://schema.org/Enumeration>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2000/01/rdf-schema#Class>
+<https://schema.org/Enumeration>	<http://www.w3.org/2000/01/rdf-schema#subClassOf>	<https://schema.org/Intangible>
+<https://schema.org/Enumeration>	<http://www.w3.org/2000/01/rdf-schema#label>	"Enumeration"
+<https://schema.org/name>	<http://www.w3.org/2000/01/rdf-schema#subPropertyOf>	<http://www.w3.org/2000/01/rdf-schema#label>
+<https://schema.org/name>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#Property>
+<https://schema.org/name>	<http://www.w3.org/2000/01/rdf-schema#label>	"name"
+<https://example.org/incident#IncidentOntology>	<http://www.w3.org/2000/01/rdf-schema#comment>	"Fictional organizational policies, not a security standard."
+<https://example.org/incident#IncidentOntology>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2002/07/owl#Ontology>
+<https://example.org/incident#IncidentOntology>	<http://www.w3.org/2000/01/rdf-schema#label>	"Security incident learning example"
+<https://example.org/demo/Legal>	<http://www.w3.org/2000/01/rdf-schema#comment>	"Assesses legal obligations and notification requirements."
+<https://example.org/demo/Legal>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<https://example.org/incident#Role>
+<https://example.org/demo/Legal>	<https://schema.org/name>	"Legal counsel"
+<https://example.org/demo/Legal>	<http://www.w3.org/2000/01/rdf-schema#label>	"Legal counsel"
+<https://example.org/incident#sourceId>	<http://www.w3.org/2000/01/rdf-schema#subPropertyOf>	<https://schema.org/identifier>
+<https://example.org/incident#sourceId>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2002/07/owl#DatatypeProperty>
+<https://example.org/incident#sourceId>	<http://www.w3.org/2000/01/rdf-schema#range>	<http://www.w3.org/2001/XMLSchema#string>
+<https://example.org/incident#sourceId>	<http://www.w3.org/2000/01/rdf-schema#domain>	<https://example.org/incident#Evidence>
+<https://example.org/incident#sourceId>	<http://www.w3.org/2000/01/rdf-schema#label>	"evidence source identifier"
+<https://example.org/demo/EDRAlert>	<http://www.w3.org/ns/prov#wasAttributedTo>	<https://example.org/demo/Dana>
+<https://example.org/demo/EDRAlert>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<https://example.org/incident#Evidence>
+<https://example.org/demo/EDRAlert>	<https://schema.org/name>	"EDR reported unusual outbound traffic"
+<https://example.org/demo/EDRAlert>	<https://example.org/incident#sourceId>	"synthetic-edr-007"
+<https://example.org/demo/EDRAlert>	<https://example.org/incident#observedAt>	"2026-10-27T06:02:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime>
+<https://example.org/demo/EDRAlert>	<https://example.org/incident#forIncident>	<https://example.org/demo/INC001>
+<https://example.org/demo/EDRAlert>	<https://example.org/incident#collectedBy>	<https://example.org/demo/SOCAssignment>
+<https://example.org/demo/EDRAlert>	<http://www.w3.org/2000/01/rdf-schema#label>	"EDR reported unusual outbound traffic"
+<https://example.org/demo/Taylor>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<https://schema.org/Person>
+<https://example.org/demo/Taylor>	<https://schema.org/name>	"Taylor"
+<https://example.org/demo/Taylor>	<http://www.w3.org/2000/01/rdf-schema#label>	"Taylor"
+<https://example.org/incident#requiredApproverRole>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2002/07/owl#ObjectProperty>
+<https://example.org/incident#requiredApproverRole>	<http://www.w3.org/2000/01/rdf-schema#range>	<https://example.org/incident#Role>
+<https://example.org/incident#requiredApproverRole>	<http://www.w3.org/2000/01/rdf-schema#domain>	<https://example.org/incident#AuthorizationPolicy>
+<https://example.org/incident#requiredApproverRole>	<http://www.w3.org/2000/01/rdf-schema#label>	"requires decision from role"
+<https://example.org/demo/OwnerAssignment>	<https://schema.org/roleName>	"Payroll owner"
+<https://example.org/demo/OwnerAssignment>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<https://example.org/incident#IncidentAssignment>
+<https://example.org/demo/OwnerAssignment>	<https://example.org/incident#assignedRole>	<https://example.org/demo/BusinessOwner>
+<https://example.org/demo/OwnerAssignment>	<https://example.org/incident#assignedActor>	<https://example.org/demo/Sam>
+<https://example.org/demo/OwnerAssignment>	<https://schema.org/member>	<https://example.org/demo/Sam>
+<https://example.org/demo/OwnerAssignment>	<https://example.org/incident#forIncident>	<https://example.org/demo/INC001>
+<https://example.org/demo/EndUser>	<http://www.w3.org/2000/01/rdf-schema#comment>	"Reports symptoms and follows response instructions."
+<https://example.org/demo/EndUser>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<https://example.org/incident#Role>
+<https://example.org/demo/EndUser>	<https://schema.org/name>	"End user"
+<https://example.org/demo/EndUser>	<http://www.w3.org/2000/01/rdf-schema#label>	"End user"
+<https://example.org/demo/CommsAssignment>	<https://schema.org/roleName>	"Communications lead"
+<https://example.org/demo/CommsAssignment>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<https://example.org/incident#IncidentAssignment>
+<https://example.org/demo/CommsAssignment>	<https://example.org/incident#assignedRole>	<https://example.org/demo/Communications>
+<https://example.org/demo/CommsAssignment>	<https://example.org/incident#assignedActor>	<https://example.org/demo/Robin>
+<https://example.org/demo/CommsAssignment>	<https://schema.org/member>	<https://example.org/demo/Robin>
+<https://example.org/demo/CommsAssignment>	<https://example.org/incident#forIncident>	<https://example.org/demo/INC001>
+<https://example.org/incident#assignedRole>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2002/07/owl#ObjectProperty>
+<https://example.org/incident#assignedRole>	<http://www.w3.org/2000/01/rdf-schema#range>	<https://example.org/incident#Role>
+<https://example.org/incident#assignedRole>	<http://www.w3.org/2000/01/rdf-schema#domain>	<https://example.org/incident#IncidentAssignment>
+<https://example.org/incident#assignedRole>	<http://www.w3.org/2000/01/rdf-schema#label>	"assigned role"
+<https://schema.org/Product>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2000/01/rdf-schema#Class>
+<https://schema.org/Product>	<http://www.w3.org/2000/01/rdf-schema#subClassOf>	<https://schema.org/Thing>
+<https://schema.org/Product>	<http://www.w3.org/2000/01/rdf-schema#label>	"Product"
+<https://example.org/incident#memberOf>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2002/07/owl#ObjectProperty>
+<https://example.org/incident#memberOf>	<http://www.w3.org/2000/01/rdf-schema#range>	<https://schema.org/Organization>
+<https://example.org/incident#memberOf>	<http://www.w3.org/2000/01/rdf-schema#domain>	<https://schema.org/Person>
+<https://example.org/incident#memberOf>	<http://www.w3.org/2000/01/rdf-schema#label>	"member of"
+<https://example.org/incident#forAction>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2002/07/owl#ObjectProperty>
+<https://example.org/incident#forAction>	<http://www.w3.org/2000/01/rdf-schema#range>	<https://example.org/incident#ResponseAction>
+<https://example.org/incident#forAction>	<http://www.w3.org/2000/01/rdf-schema#domain>	<https://example.org/incident#Approval>
+<https://example.org/incident#forAction>	<http://www.w3.org/2000/01/rdf-schema#label>	"decision about action"
+<https://example.org/demo/Lee>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<https://schema.org/Person>
+<https://example.org/demo/Lee>	<https://schema.org/name>	"Lee"
+<https://example.org/demo/Lee>	<http://www.w3.org/2000/01/rdf-schema#label>	"Lee"
+<https://schema.org/object>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#Property>
+<https://schema.org/object>	<http://www.w3.org/2000/01/rdf-schema#label>	"object"
+<https://example.org/demo/IsolationPolicy>	<https://example.org/incident#requiredExecutorRole>	<https://example.org/demo/ITResponder>
+<https://example.org/demo/IsolationPolicy>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<https://example.org/incident#AuthorizationPolicy>
+<https://example.org/demo/IsolationPolicy>	<https://schema.org/name>	"Example endpoint isolation policy"
+<https://example.org/demo/IsolationPolicy>	<https://example.org/incident#requiredApproverRole>	<https://example.org/demo/CISO>
+<https://example.org/demo/IsolationPolicy>	<http://www.w3.org/2000/01/rdf-schema#label>	"Example endpoint isolation policy"
+<https://example.org/demo/SOC>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<https://schema.org/Organization>
+<https://example.org/demo/SOC>	<https://schema.org/name>	"Security Operations Center"
+<https://example.org/demo/SOC>	<https://schema.org/member>	<https://example.org/demo/SOCAssignment>
+<https://example.org/demo/SOC>	<http://www.w3.org/2000/01/rdf-schema#label>	"Security Operations Center"
+<https://example.org/incident#assignedActor>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2002/07/owl#ObjectProperty>
+<https://example.org/incident#assignedActor>	<http://www.w3.org/2000/01/rdf-schema#range>	<https://example.org/incident#Actor>
+<https://example.org/incident#assignedActor>	<http://www.w3.org/2000/01/rdf-schema#domain>	<https://example.org/incident#IncidentAssignment>
+<https://example.org/incident#assignedActor>	<http://www.w3.org/2000/01/rdf-schema#label>	"assigned actor"
+<https://schema.org/Service>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2000/01/rdf-schema#Class>
+<https://schema.org/Service>	<http://www.w3.org/2000/01/rdf-schema#subClassOf>	<https://schema.org/Intangible>
+<https://schema.org/Service>	<http://www.w3.org/2000/01/rdf-schema#label>	"Service"
+<https://example.org/incident#observedAt>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2002/07/owl#DatatypeProperty>
+<https://example.org/incident#observedAt>	<http://www.w3.org/2000/01/rdf-schema#range>	<http://www.w3.org/2001/XMLSchema#dateTime>
+<https://example.org/incident#observedAt>	<http://www.w3.org/2000/01/rdf-schema#domain>	<https://example.org/incident#Evidence>
+<https://example.org/incident#observedAt>	<http://www.w3.org/2000/01/rdf-schema#label>	"observed at"
+<https://example.org/demo/IsolationGrant>	<https://example.org/incident#recordedAt>	"2026-10-27T06:05:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime>
+<https://example.org/demo/IsolationGrant>	<https://example.org/incident#approvedBy>	<https://example.org/demo/CISOAssignment>
+<https://example.org/demo/IsolationGrant>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<https://example.org/incident#Approval>
+<https://example.org/demo/IsolationGrant>	<https://example.org/incident#forAction>	<https://example.org/demo/IsolateLaptop>
+<https://example.org/demo/IsolationGrant>	<https://example.org/incident#decision>	"Granted"
+<https://example.org/demo/CEOAssignment>	<https://schema.org/roleName>	"CEO"
+<https://example.org/demo/CEOAssignment>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<https://example.org/incident#IncidentAssignment>
+<https://example.org/demo/CEOAssignment>	<https://example.org/incident#assignedRole>	<https://example.org/demo/CEO>
+<https://example.org/demo/CEOAssignment>	<https://example.org/incident#assignedActor>	<https://example.org/demo/Jordan>
+<https://example.org/demo/CEOAssignment>	<https://schema.org/member>	<https://example.org/demo/Jordan>
+<https://example.org/demo/CEOAssignment>	<https://example.org/incident#forIncident>	<https://example.org/demo/INC001>
+<https://example.org/demo/ITResponder>	<http://www.w3.org/2000/01/rdf-schema#comment>	"Implements containment and recovery through authorized tools."
+<https://example.org/demo/ITResponder>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<https://example.org/incident#Role>
+<https://example.org/demo/ITResponder>	<https://schema.org/name>	"IT responder"
+<https://example.org/demo/ITResponder>	<http://www.w3.org/2000/01/rdf-schema#label>	"IT responder"
+<https://example.org/demo/CISOAssignment>	<https://schema.org/roleName>	"CISO"
+<https://example.org/demo/CISOAssignment>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<https://example.org/incident#IncidentAssignment>
+<https://example.org/demo/CISOAssignment>	<https://example.org/incident#assignedRole>	<https://example.org/demo/CISO>
+<https://example.org/demo/CISOAssignment>	<https://example.org/incident#assignedActor>	<https://example.org/demo/Morgan>
+<https://example.org/demo/CISOAssignment>	<https://schema.org/member>	<https://example.org/demo/Morgan>
+<https://example.org/demo/CISOAssignment>	<https://example.org/incident#forIncident>	<https://example.org/demo/INC001>
+<https://example.org/incident#Evidence>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2002/07/owl#Class>
+<https://example.org/incident#Evidence>	<http://www.w3.org/2000/01/rdf-schema#subClassOf>	<http://www.w3.org/ns/prov#Entity>
+<https://example.org/incident#Evidence>	<http://www.w3.org/2000/01/rdf-schema#label>	"Evidence record"
+<https://example.org/incident#target>	<http://www.w3.org/2000/01/rdf-schema#subPropertyOf>	<https://schema.org/object>
+<https://example.org/incident#target>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2002/07/owl#ObjectProperty>
+<https://example.org/incident#target>	<http://www.w3.org/2000/01/rdf-schema#domain>	<https://example.org/incident#ResponseAction>
+<https://example.org/incident#target>	<http://www.w3.org/2000/01/rdf-schema#label>	"action target"
+<https://example.org/demo/Sam>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<https://schema.org/Person>
+<https://example.org/demo/Sam>	<https://schema.org/name>	"Sam"
+<https://example.org/demo/Sam>	<http://www.w3.org/2000/01/rdf-schema#label>	"Sam"
+<https://example.org/incident#status>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2002/07/owl#DatatypeProperty>
+<https://example.org/incident#status>	<http://www.w3.org/2000/01/rdf-schema#range>	<http://www.w3.org/2001/XMLSchema#string>
+<https://example.org/incident#status>	<http://www.w3.org/2000/01/rdf-schema#domain>	<https://example.org/incident#SecurityIncident>
+<https://example.org/incident#status>	<http://www.w3.org/2000/01/rdf-schema#label>	"incident status"
+<https://schema.org/Intangible>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2000/01/rdf-schema#Class>
+<https://schema.org/Intangible>	<http://www.w3.org/2000/01/rdf-schema#subClassOf>	<https://schema.org/Thing>
+<https://schema.org/Intangible>	<http://www.w3.org/2000/01/rdf-schema#label>	"Intangible"
+<https://example.org/demo/SOCAnalyst>	<http://www.w3.org/2000/01/rdf-schema#comment>	"Triages alerts, preserves evidence, proposes containment."
+<https://example.org/demo/SOCAnalyst>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<https://example.org/incident#Role>
+<https://example.org/demo/SOCAnalyst>	<https://schema.org/name>	"SOC analyst"
+<https://example.org/demo/SOCAnalyst>	<http://www.w3.org/2000/01/rdf-schema#label>	"SOC analyst"
+<https://example.org/incident#decision>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2002/07/owl#DatatypeProperty>
+<https://example.org/incident#decision>	<http://www.w3.org/2000/01/rdf-schema#range>	<http://www.w3.org/2001/XMLSchema#string>
+<https://example.org/incident#decision>	<http://www.w3.org/2000/01/rdf-schema#domain>	<https://example.org/incident#Approval>
+<https://example.org/incident#decision>	<http://www.w3.org/2000/01/rdf-schema#label>	"decision"
+<https://example.org/incident#EndpointIsolationAction>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2002/07/owl#Class>
+<https://example.org/incident#EndpointIsolationAction>	<http://www.w3.org/2000/01/rdf-schema#subClassOf>	<https://example.org/incident#ContainmentAction>
+<https://example.org/incident#EndpointIsolationAction>	<http://www.w3.org/2000/01/rdf-schema#label>	"Endpoint isolation"
+<https://schema.org/actionStatus>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#Property>
+<https://schema.org/actionStatus>	<http://www.w3.org/2000/01/rdf-schema#label>	"actionStatus"
+<https://example.org/demo/Communications>	<http://www.w3.org/2000/01/rdf-schema#comment>	"Prepares audience-appropriate updates from approved findings."
+<https://example.org/demo/Communications>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<https://example.org/incident#Role>
+<https://example.org/demo/Communications>	<https://schema.org/name>	"Communications lead"
+<https://example.org/demo/Communications>	<http://www.w3.org/2000/01/rdf-schema#label>	"Communications lead"
+<https://example.org/incident#Finding>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2002/07/owl#Class>
+<https://example.org/incident#Finding>	<http://www.w3.org/2000/01/rdf-schema#subClassOf>	<http://www.w3.org/ns/prov#Entity>
+<https://example.org/incident#Finding>	<http://www.w3.org/2000/01/rdf-schema#label>	"Finding or hypothesis"
+<https://example.org/incident#ResponseAction>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2002/07/owl#Class>
+<https://example.org/incident#ResponseAction>	<http://www.w3.org/2000/01/rdf-schema#subClassOf>	<https://schema.org/Action>
+<https://example.org/incident#ResponseAction>	<http://www.w3.org/2000/01/rdf-schema#label>	"Proposed response action"
+<https://example.org/demo/INC001>	<https://example.org/incident#affectsAsset>	<https://example.org/demo/Laptop42>
+<https://example.org/demo/INC001>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<https://example.org/incident#SecurityIncident>
+<https://example.org/demo/INC001>	<https://schema.org/name>	"INC-001: suspicious payroll workstation"
+<https://example.org/demo/INC001>	<https://example.org/incident#status>	"Investigating"
+<https://example.org/demo/INC001>	<https://example.org/incident#threatensService>	<https://example.org/demo/Payroll>
+<https://example.org/demo/INC001>	<https://example.org/incident#detectedAt>	"2026-10-27T06:00:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime>
+<https://example.org/demo/INC001>	<https://example.org/incident#severity>	"High"
+<https://example.org/demo/INC001>	<http://www.w3.org/2000/01/rdf-schema#label>	"INC-001: suspicious payroll workstation"
+<https://example.org/incident#SecurityIncident>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2002/07/owl#Class>
+<https://example.org/incident#SecurityIncident>	<http://www.w3.org/2000/01/rdf-schema#label>	"Security incident"
+<https://example.org/incident#Actor>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2002/07/owl#Class>
+<https://example.org/incident#Actor>	<http://www.w3.org/2000/01/rdf-schema#label>	"Actor"
+<https://schema.org/member>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#Property>
+<https://schema.org/member>	<http://www.w3.org/2000/01/rdf-schema#label>	"member"
+<https://example.org/incident#AuthorizationPolicy>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2002/07/owl#Class>
+<https://example.org/incident#AuthorizationPolicy>	<http://www.w3.org/2000/01/rdf-schema#label>	"Example approval policy"
+<http://www.w3.org/ns/prov#Entity>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2002/07/owl#Class>
+<http://www.w3.org/ns/prov#Entity>	<http://www.w3.org/2000/01/rdf-schema#label>	"Entity"
+<https://example.org/incident#governedBy>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2002/07/owl#ObjectProperty>
+<https://example.org/incident#governedBy>	<http://www.w3.org/2000/01/rdf-schema#range>	<https://example.org/incident#AuthorizationPolicy>
+<https://example.org/incident#governedBy>	<http://www.w3.org/2000/01/rdf-schema#domain>	<https://example.org/incident#ResponseAction>
+<https://example.org/incident#governedBy>	<http://www.w3.org/2000/01/rdf-schema#label>	"governed by policy"
+<https://example.org/incident#Asset>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2002/07/owl#Class>
+<https://example.org/incident#Asset>	<http://www.w3.org/2000/01/rdf-schema#label>	"IT asset"
+<https://example.org/demo/SOCAssignment>	<https://schema.org/roleName>	"SOC analyst"
+<https://example.org/demo/SOCAssignment>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<https://example.org/incident#IncidentAssignment>
+<https://example.org/demo/SOCAssignment>	<https://example.org/incident#assignedRole>	<https://example.org/demo/SOCAnalyst>
+<https://example.org/demo/SOCAssignment>	<https://example.org/incident#assignedActor>	<https://example.org/demo/Dana>
+<https://example.org/demo/SOCAssignment>	<https://schema.org/member>	<https://example.org/demo/Dana>
+<https://example.org/demo/SOCAssignment>	<https://example.org/incident#forIncident>	<https://example.org/demo/INC001>
+<https://example.org/incident#Role>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2002/07/owl#Class>
+<https://example.org/incident#Role>	<http://www.w3.org/2000/01/rdf-schema#label>	"Incident role"
+<http://www.w3.org/ns/prov#generatedAtTime>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2002/07/owl#DatatypeProperty>
+<http://www.w3.org/ns/prov#generatedAtTime>	<http://www.w3.org/2000/01/rdf-schema#range>	<http://www.w3.org/2001/XMLSchema#dateTime>
+<http://www.w3.org/ns/prov#generatedAtTime>	<http://www.w3.org/2000/01/rdf-schema#domain>	<http://www.w3.org/ns/prov#Entity>
+<http://www.w3.org/ns/prov#generatedAtTime>	<http://www.w3.org/2000/01/rdf-schema#label>	"generatedAtTime"
+<https://example.org/demo/PossibleExfiltration>	<https://example.org/incident#supportedBy>	<https://example.org/demo/EDRAlert>
+<https://example.org/demo/PossibleExfiltration>	<https://example.org/incident#assertedBy>	<https://example.org/demo/SOCAssignment>
+<https://example.org/demo/PossibleExfiltration>	<http://www.w3.org/ns/prov#wasAttributedTo>	<https://example.org/demo/Dana>
+<https://example.org/demo/PossibleExfiltration>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<https://example.org/incident#Finding>
+<https://example.org/demo/PossibleExfiltration>	<https://example.org/incident#statement>	"Possible data exfiltration from Laptop-42"
+<https://example.org/demo/PossibleExfiltration>	<https://example.org/incident#forIncident>	<https://example.org/demo/INC001>
+<https://example.org/demo/PossibleExfiltration>	<https://example.org/incident#findingStatus>	"Suspected"
+<https://example.org/incident#Approval>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2002/07/owl#Class>
+<https://example.org/incident#Approval>	<http://www.w3.org/2000/01/rdf-schema#subClassOf>	<http://www.w3.org/ns/prov#Entity>
+<https://example.org/incident#Approval>	<http://www.w3.org/2000/01/rdf-schema#label>	"Recorded decision about one action"
+<https://example.org/incident#threatensService>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2002/07/owl#ObjectProperty>
+<https://example.org/incident#threatensService>	<http://www.w3.org/2000/01/rdf-schema#range>	<https://example.org/incident#BusinessService>
+<https://example.org/incident#threatensService>	<http://www.w3.org/2000/01/rdf-schema#domain>	<https://example.org/incident#SecurityIncident>
+<https://example.org/incident#threatensService>	<http://www.w3.org/2000/01/rdf-schema#label>	"puts service at risk"
+<https://example.org/demo/Robin>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<https://schema.org/Person>
+<https://example.org/demo/Robin>	<https://schema.org/name>	"Robin"
+<https://example.org/demo/Robin>	<http://www.w3.org/2000/01/rdf-schema#label>	"Robin"
+<https://example.org/demo/Dana>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<https://schema.org/Person>
+<https://example.org/demo/Dana>	<https://schema.org/name>	"Dana"
+<https://example.org/demo/Dana>	<https://example.org/incident#memberOf>	<https://example.org/demo/SOC>
+<https://example.org/demo/Dana>	<http://www.w3.org/2000/01/rdf-schema#label>	"Dana"
+<https://example.org/incident#statement>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2002/07/owl#DatatypeProperty>
+<https://example.org/incident#statement>	<http://www.w3.org/2000/01/rdf-schema#range>	<http://www.w3.org/2001/XMLSchema#string>
+<https://example.org/incident#statement>	<http://www.w3.org/2000/01/rdf-schema#domain>	<https://example.org/incident#Finding>
+<https://example.org/incident#statement>	<http://www.w3.org/2000/01/rdf-schema#label>	"finding statement"
+<https://example.org/incident#detectedAt>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2002/07/owl#DatatypeProperty>
+<https://example.org/incident#detectedAt>	<http://www.w3.org/2000/01/rdf-schema#range>	<http://www.w3.org/2001/XMLSchema#dateTime>
+<https://example.org/incident#detectedAt>	<http://www.w3.org/2000/01/rdf-schema#domain>	<https://example.org/incident#SecurityIncident>
+<https://example.org/incident#detectedAt>	<http://www.w3.org/2000/01/rdf-schema#label>	"detected at"
+<https://example.org/incident#ContainmentAction>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2002/07/owl#Class>
+<https://example.org/incident#ContainmentAction>	<http://www.w3.org/2000/01/rdf-schema#subClassOf>	<https://example.org/incident#ResponseAction>
+<https://example.org/incident#ContainmentAction>	<http://www.w3.org/2000/01/rdf-schema#label>	"Containment action"
+<https://example.org/demo/UserReport>	<http://www.w3.org/ns/prov#wasAttributedTo>	<https://example.org/demo/Alex>
+<https://example.org/demo/UserReport>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<https://example.org/incident#Evidence>
+<https://example.org/demo/UserReport>	<https://schema.org/name>	"User reported opening a suspicious attachment"
+<https://example.org/demo/UserReport>	<https://example.org/incident#sourceId>	"synthetic-helpdesk-001"
+<https://example.org/demo/UserReport>	<https://example.org/incident#observedAt>	"2026-10-27T06:00:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime>
+<https://example.org/demo/UserReport>	<https://example.org/incident#forIncident>	<https://example.org/demo/INC001>
+<https://example.org/demo/UserReport>	<https://example.org/incident#collectedBy>	<https://example.org/demo/UserAssignment>
+<https://example.org/demo/UserReport>	<http://www.w3.org/2000/01/rdf-schema#label>	"User reported opening a suspicious attachment"
+<https://schema.org/Organization>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2000/01/rdf-schema#Class>
+<https://schema.org/Organization>	<http://www.w3.org/2000/01/rdf-schema#subClassOf>	<https://schema.org/Thing>
+<https://schema.org/Organization>	<http://www.w3.org/2000/01/rdf-schema#label>	"Organization"
+<https://example.org/incident#forIncident>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2002/07/owl#ObjectProperty>
+<https://example.org/incident#forIncident>	<http://www.w3.org/2000/01/rdf-schema#range>	<https://example.org/incident#SecurityIncident>
+<https://example.org/incident#forIncident>	<http://www.w3.org/2000/01/rdf-schema#label>	"in incident"
+<http://www.w3.org/ns/prov#wasDerivedFrom>	<http://www.w3.org/2000/01/rdf-schema#subPropertyOf>	<http://www.w3.org/ns/prov#wasInfluencedBy>
+<http://www.w3.org/ns/prov#wasDerivedFrom>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2002/07/owl#ObjectProperty>
+<http://www.w3.org/ns/prov#wasDerivedFrom>	<http://www.w3.org/2000/01/rdf-schema#range>	<http://www.w3.org/ns/prov#Entity>
+<http://www.w3.org/ns/prov#wasDerivedFrom>	<http://www.w3.org/2000/01/rdf-schema#domain>	<http://www.w3.org/ns/prov#Entity>
+<http://www.w3.org/ns/prov#wasDerivedFrom>	<http://www.w3.org/2000/01/rdf-schema#label>	"wasDerivedFrom"
+<https://example.org/incident#collectedBy>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2002/07/owl#ObjectProperty>
+<https://example.org/incident#collectedBy>	<http://www.w3.org/2000/01/rdf-schema#range>	<https://example.org/incident#IncidentAssignment>
+<https://example.org/incident#collectedBy>	<http://www.w3.org/2000/01/rdf-schema#domain>	<https://example.org/incident#Evidence>
+<https://example.org/incident#collectedBy>	<http://www.w3.org/2000/01/rdf-schema#label>	"collected by assignment"
+<https://example.org/demo/IsolateLaptop>	<https://schema.org/agent>	<https://example.org/demo/Eli>
+<https://example.org/demo/IsolateLaptop>	<https://example.org/incident#executor>	<https://example.org/demo/ITAssignment>
+<https://example.org/demo/IsolateLaptop>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<https://example.org/incident#EndpointIsolationAction>
+<https://example.org/demo/IsolateLaptop>	<https://schema.org/name>	"Isolate Laptop-42"
+<https://example.org/demo/IsolateLaptop>	<https://example.org/incident#target>	<https://example.org/demo/Laptop42>
+<https://example.org/demo/IsolateLaptop>	<https://schema.org/actionStatus>	<https://schema.org/PotentialActionStatus>
+<https://example.org/demo/IsolateLaptop>	<https://example.org/incident#governedBy>	<https://example.org/demo/IsolationPolicy>
+<https://example.org/demo/IsolateLaptop>	<https://example.org/incident#forIncident>	<https://example.org/demo/INC001>
+<https://example.org/demo/IsolateLaptop>	<https://example.org/incident#proposedBy>	<https://example.org/demo/SOCAssignment>
+<https://example.org/demo/IsolateLaptop>	<http://www.w3.org/2000/01/rdf-schema#label>	"Isolate Laptop-42"
+<https://example.org/demo/Laptop42>	<https://example.org/incident#usedFor>	<https://example.org/demo/Payroll>
+<https://example.org/demo/Laptop42>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<https://example.org/incident#Workstation>
+<https://example.org/demo/Laptop42>	<https://example.org/incident#usedBy>	<https://example.org/demo/Alex>
+<https://example.org/demo/Laptop42>	<https://schema.org/name>	"Laptop-42"
+<https://example.org/demo/Laptop42>	<http://www.w3.org/2000/01/rdf-schema#label>	"Laptop-42"
+<https://schema.org/ActionStatusType>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2000/01/rdf-schema#Class>
+<https://schema.org/ActionStatusType>	<http://www.w3.org/2000/01/rdf-schema#subClassOf>	<https://schema.org/StatusEnumeration>
+<https://schema.org/ActionStatusType>	<http://www.w3.org/2000/01/rdf-schema#label>	"ActionStatusType"
+<https://schema.org/OrganizationRole>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2000/01/rdf-schema#Class>
+<https://schema.org/OrganizationRole>	<http://www.w3.org/2000/01/rdf-schema#subClassOf>	<https://schema.org/Role>
+<https://schema.org/OrganizationRole>	<http://www.w3.org/2000/01/rdf-schema#label>	"OrganizationRole"
+<https://example.org/incident#proposedBy>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2002/07/owl#ObjectProperty>
+<https://example.org/incident#proposedBy>	<http://www.w3.org/2000/01/rdf-schema#range>	<https://example.org/incident#IncidentAssignment>
+<https://example.org/incident#proposedBy>	<http://www.w3.org/2000/01/rdf-schema#domain>	<https://example.org/incident#ResponseAction>
+<https://example.org/incident#proposedBy>	<http://www.w3.org/2000/01/rdf-schema#label>	"proposed by assignment"
+<https://example.org/demo/Eli>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<https://schema.org/Person>
+<https://example.org/demo/Eli>	<https://schema.org/name>	"Eli"
+<https://example.org/demo/Eli>	<https://example.org/incident#memberOf>	<https://example.org/demo/IT>
+<https://example.org/demo/Eli>	<http://www.w3.org/2000/01/rdf-schema#label>	"Eli"
+<https://example.org/incident#severity>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2002/07/owl#DatatypeProperty>
+<https://example.org/incident#severity>	<http://www.w3.org/2000/01/rdf-schema#range>	<http://www.w3.org/2001/XMLSchema#string>
+<https://example.org/incident#severity>	<http://www.w3.org/2000/01/rdf-schema#domain>	<https://example.org/incident#SecurityIncident>
+<https://example.org/incident#severity>	<http://www.w3.org/2000/01/rdf-schema#label>	"severity"
+<https://example.org/demo/Jordan>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<https://schema.org/Person>
+<https://example.org/demo/Jordan>	<https://schema.org/name>	"Jordan"
+<https://example.org/demo/Jordan>	<http://www.w3.org/2000/01/rdf-schema#label>	"Jordan"
+<https://example.org/demo/Alex>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<https://schema.org/Person>
+<https://example.org/demo/Alex>	<https://schema.org/name>	"Alex"
+<https://example.org/demo/Alex>	<http://www.w3.org/2000/01/rdf-schema#label>	"Alex"
+<https://example.org/demo/ITAssignment>	<https://schema.org/roleName>	"IT responder"
+<https://example.org/demo/ITAssignment>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<https://example.org/incident#IncidentAssignment>
+<https://example.org/demo/ITAssignment>	<https://example.org/incident#assignedRole>	<https://example.org/demo/ITResponder>
+<https://example.org/demo/ITAssignment>	<https://example.org/incident#assignedActor>	<https://example.org/demo/Eli>
+<https://example.org/demo/ITAssignment>	<https://schema.org/member>	<https://example.org/demo/Eli>
+<https://example.org/demo/ITAssignment>	<https://example.org/incident#forIncident>	<https://example.org/demo/INC001>
+<https://example.org/demo/CommandAssignment>	<https://schema.org/roleName>	"Incident commander"
+<https://example.org/demo/CommandAssignment>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<https://example.org/incident#IncidentAssignment>
+<https://example.org/demo/CommandAssignment>	<https://example.org/incident#assignedRole>	<https://example.org/demo/IncidentCommander>
+<https://example.org/demo/CommandAssignment>	<https://example.org/incident#assignedActor>	<https://example.org/demo/Taylor>
+<https://example.org/demo/CommandAssignment>	<https://schema.org/member>	<https://example.org/demo/Taylor>
+<https://example.org/demo/CommandAssignment>	<https://example.org/incident#forIncident>	<https://example.org/demo/INC001>
+<https://example.org/incident#Workstation>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2002/07/owl#Class>
+<https://example.org/incident#Workstation>	<http://www.w3.org/2000/01/rdf-schema#subClassOf>	<https://schema.org/Product>
+<https://example.org/incident#Workstation>	<http://www.w3.org/2000/01/rdf-schema#subClassOf>	<https://example.org/incident#Asset>
+<https://example.org/incident#Workstation>	<http://www.w3.org/2000/01/rdf-schema#label>	"Workstation"
+<https://example.org/demo/IT>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<https://schema.org/Organization>
+<https://example.org/demo/IT>	<https://schema.org/name>	"IT operations"
+<https://example.org/demo/IT>	<https://schema.org/member>	<https://example.org/demo/ITAssignment>
+<https://example.org/demo/IT>	<http://www.w3.org/2000/01/rdf-schema#label>	"IT operations"
+<https://schema.org/Action>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2000/01/rdf-schema#Class>
+<https://schema.org/Action>	<http://www.w3.org/2000/01/rdf-schema#subClassOf>	<https://schema.org/Thing>
+<https://schema.org/Action>	<http://www.w3.org/2000/01/rdf-schema#label>	"Action"
+<http://www.w3.org/ns/prov#Agent>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2002/07/owl#Class>
+<http://www.w3.org/ns/prov#Agent>	<http://www.w3.org/2000/01/rdf-schema#label>	"Agent"
+<https://schema.org/StatusEnumeration>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2000/01/rdf-schema#Class>
+<https://schema.org/StatusEnumeration>	<http://www.w3.org/2000/01/rdf-schema#subClassOf>	<https://schema.org/Enumeration>
+<https://schema.org/StatusEnumeration>	<http://www.w3.org/2000/01/rdf-schema#label>	"StatusEnumeration"
+<https://example.org/incident#findingStatus>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://www.w3.org/2002/07/owl#DatatypeProperty>
+<https://example.org/incident#findingStatus>	<http://www.w3.org/2000/01/rdf-schema#range>	<http://www.w3.org/2001/XMLSchema#string>
+<https://example.org/incident#findingStatus>	<http://www.w3.org/2000/01/rdf-schema#domain>	<https://example.org/incident#Finding>
+<https://example.org/incident#findingStatus>	<http://www.w3.org/2000/01/rdf-schema#label>	"finding status"

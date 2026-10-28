@@ -1,0 +1,11 @@
+sequenceDiagram
+    autonumber
+    participant you as You
+    participant oo as Open Ontologies
+    participant reviewer as Reviewer
+    participant agent as AI agent
+    you->>oo: Plan one subclass edit
+    oo->>oo: Compare old and new closure
+    oo-->>reviewer: Report a newly derived type
+    reviewer-->>you: Review the intended meaning
+    oo-->>agent: Preserve the current model

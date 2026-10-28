@@ -1,0 +1,9 @@
+PREFIX ir: <https://example.org/incident#>
+PREFIX ex: <https://example.org/demo/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?asset ?user ?serviceAtRisk WHERE {
+  ex:INC001 ir:affectsAsset ?assetNode ; ir:threatensService ?serviceNode .
+  ?assetNode ir:usedBy ?personNode ; rdfs:label ?asset .
+  ?personNode rdfs:label ?user .
+  ?serviceNode rdfs:label ?serviceAtRisk .
+}

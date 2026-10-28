@@ -1,0 +1,9 @@
+sequenceDiagram
+    autonumber
+    participant app as Your application
+    participant oo as Open Ontologies
+    participant agent as AI agent
+    app->>oo: Load definitions + facts
+    app->>oo: Apply RDFS reasoning
+    agent->>oo: ASK about schema Action
+    oo-->>agent: true · derived type

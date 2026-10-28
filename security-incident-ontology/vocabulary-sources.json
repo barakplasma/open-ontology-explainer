@@ -1,0 +1,42 @@
+[
+  {
+    "source": "https://schema.org/version/latest/schemaorg-current-https.ttl",
+    "retrieved": "2026-10-27",
+    "sha256": "7f15ca89398c4f235f478a4b3b8d1f975d63c5a860b77c8a8fce01f791b7ae2f",
+    "selected_terms": [
+      "https://schema.org/Action",
+      "https://schema.org/ActionStatusType",
+      "https://schema.org/Enumeration",
+      "https://schema.org/Intangible",
+      "https://schema.org/Organization",
+      "https://schema.org/OrganizationRole",
+      "https://schema.org/Person",
+      "https://schema.org/PotentialActionStatus",
+      "https://schema.org/Product",
+      "https://schema.org/Role",
+      "https://schema.org/Service",
+      "https://schema.org/StatusEnumeration",
+      "https://schema.org/Thing",
+      "https://schema.org/actionStatus",
+      "https://schema.org/agent",
+      "https://schema.org/identifier",
+      "https://schema.org/member",
+      "https://schema.org/name",
+      "https://schema.org/object",
+      "https://schema.org/roleName"
+    ]
+  },
+  {
+    "source": "https://www.w3.org/ns/prov-o.ttl",
+    "retrieved": "2026-10-27",
+    "sha256": "7d203989f67b38bca572253942acc5a1bf24ce3ccfece16f072dcb4be2b79a96",
+    "selected_terms": [
+      "http://www.w3.org/ns/prov#Agent",
+      "http://www.w3.org/ns/prov#Entity",
+      "http://www.w3.org/ns/prov#generatedAtTime",
+      "http://www.w3.org/ns/prov#wasAttributedTo",
+      "http://www.w3.org/ns/prov#wasDerivedFrom",
+      "http://www.w3.org/ns/prov#wasInfluencedBy"
+    ]
+  }
+]

@@ -1,0 +1,12 @@
+import {readFile,mkdir,writeFile} from 'node:fs/promises';
+import {fileURLToPath} from 'node:url';
+import {dirname,resolve} from 'node:path';
+import {lessons,mermaidSource} from './dist/lessons.js';
+const root=dirname(fileURLToPath(import.meta.url));
+const example=resolve(root,'../security-incident-ontology');
+const results=JSON.parse(await readFile(resolve(example,'output/results.json'),'utf8'));
+const data={results,queries:{}};
+for(const file of ['07-public-roles.rq','09-public-inference.rq'])data.queries[file]=await readFile(resolve(example,'queries',file),'utf8');
+await mkdir(resolve(example,'diagrams'),{recursive:true});
+for(const lesson of lessons(data,{reasoned:true,validation:'valid'}))await writeFile(resolve(example,'diagrams',lesson.id+'.mmd'),mermaidSource(lesson));
+console.log('Exported six participant sequence diagrams from the lesson model.');

@@ -1,0 +1,4 @@
+# This triple is NOT explicitly asserted. RDFS derives it through two subclasses.
+PREFIX ir: <https://example.org/incident#>
+PREFIX ex: <https://example.org/demo/>
+ASK { ex:IsolateLaptop a ir:ResponseAction }

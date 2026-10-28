@@ -1,0 +1,663 @@
+{
+  "public": "@prefix owl: <http://www.w3.org/2002/07/owl#> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n@prefix schema: <https://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\nschema:Action a rdfs:Class ;\n    rdfs:label \"Action\" ;\n    rdfs:subClassOf schema:Thing .\n\nschema:ActionStatusType a rdfs:Class ;\n    rdfs:label \"ActionStatusType\" ;\n    rdfs:subClassOf schema:StatusEnumeration .\n\nschema:Enumeration a rdfs:Class ;\n    rdfs:label \"Enumeration\" ;\n    rdfs:subClassOf schema:Intangible .\n\nschema:Intangible a rdfs:Class ;\n    rdfs:label \"Intangible\" ;\n    rdfs:subClassOf schema:Thing .\n\nschema:Organization a rdfs:Class ;\n    rdfs:label \"Organization\" ;\n    rdfs:subClassOf schema:Thing .\n\nschema:OrganizationRole a rdfs:Class ;\n    rdfs:label \"OrganizationRole\" ;\n    rdfs:subClassOf schema:Role .\n\nschema:Person a rdfs:Class ;\n    rdfs:label \"Person\" ;\n    rdfs:subClassOf schema:Thing .\n\nschema:Product a rdfs:Class ;\n    rdfs:label \"Product\" ;\n    rdfs:subClassOf schema:Thing .\n\nschema:Role a rdfs:Class ;\n    rdfs:label \"Role\" ;\n    rdfs:subClassOf schema:Intangible .\n\nschema:Service a rdfs:Class ;\n    rdfs:label \"Service\" ;\n    rdfs:subClassOf schema:Intangible .\n\nschema:StatusEnumeration a rdfs:Class ;\n    rdfs:label \"StatusEnumeration\" ;\n    rdfs:subClassOf schema:Enumeration .\n\nschema:Thing a rdfs:Class ;\n    rdfs:label \"Thing\" .\n\nprov:generatedAtTime a owl:DatatypeProperty ;\n    rdfs:label \"generatedAtTime\" ;\n    rdfs:domain prov:Entity ;\n    rdfs:range xsd:dateTime .\n\nprov:wasAttributedTo a owl:ObjectProperty ;\n    rdfs:label \"wasAttributedTo\" ;\n    rdfs:domain prov:Entity ;\n    rdfs:range prov:Agent ;\n    rdfs:subPropertyOf prov:wasInfluencedBy .\n\nprov:wasDerivedFrom a owl:ObjectProperty ;\n    rdfs:label \"wasDerivedFrom\" ;\n    rdfs:domain prov:Entity ;\n    rdfs:range prov:Entity ;\n    rdfs:subPropertyOf prov:wasInfluencedBy .\n\nschema:PotentialActionStatus a schema:ActionStatusType ;\n    rdfs:label \"PotentialActionStatus\" .\n\nschema:actionStatus a rdf:Property ;\n    rdfs:label \"actionStatus\" .\n\nschema:agent a rdf:Property ;\n    rdfs:label \"agent\" .\n\nschema:identifier a rdf:Property ;\n    rdfs:label \"identifier\" .\n\nschema:member a rdf:Property ;\n    rdfs:label \"member\" .\n\nschema:name a rdf:Property ;\n    rdfs:label \"name\" ;\n    rdfs:subPropertyOf rdfs:label .\n\nschema:object a rdf:Property ;\n    rdfs:label \"object\" .\n\nschema:roleName a rdf:Property ;\n    rdfs:label \"roleName\" .\n\nprov:Agent a owl:Class ;\n    rdfs:label \"Agent\" .\n\nprov:wasInfluencedBy a owl:ObjectProperty ;\n    rdfs:label \"wasInfluencedBy\" .\n\nprov:Entity a owl:Class ;\n    rdfs:label \"Entity\" .\n\n",
+  "ontology": "@prefix ir: <https://example.org/incident#> .\n@prefix owl: <http://www.w3.org/2002/07/owl#> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n@prefix schema: <https://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\nir:EndpointIsolationAction a owl:Class ;\n    rdfs:label \"Endpoint isolation\" ;\n    rdfs:subClassOf ir:ContainmentAction .\n\nir:IncidentOntology a owl:Ontology ;\n    rdfs:label \"Security incident learning example\" ;\n    rdfs:comment \"Fictional organizational policies, not a security standard.\" .\n\nir:ServicePauseAction a owl:Class ;\n    rdfs:label \"Business service pause\" ;\n    rdfs:subClassOf ir:ContainmentAction .\n\nir:Workstation a owl:Class ;\n    rdfs:label \"Workstation\" ;\n    rdfs:subClassOf ir:Asset,\n        schema:Product .\n\nir:affectsAsset a owl:ObjectProperty ;\n    rdfs:label \"affects asset\" ;\n    rdfs:domain ir:SecurityIncident ;\n    rdfs:range ir:Asset .\n\nir:approvedBy a owl:ObjectProperty ;\n    rdfs:label \"decision made by assignment\" ;\n    rdfs:domain ir:Approval ;\n    rdfs:range ir:IncidentAssignment .\n\nir:assertedBy a owl:ObjectProperty ;\n    rdfs:label \"asserted by assignment\" ;\n    rdfs:domain ir:Finding ;\n    rdfs:range ir:IncidentAssignment .\n\nir:assignedActor a owl:ObjectProperty ;\n    rdfs:label \"assigned actor\" ;\n    rdfs:domain ir:IncidentAssignment ;\n    rdfs:range ir:Actor .\n\nir:assignedRole a owl:ObjectProperty ;\n    rdfs:label \"assigned role\" ;\n    rdfs:domain ir:IncidentAssignment ;\n    rdfs:range ir:Role .\n\nir:collectedBy a owl:ObjectProperty ;\n    rdfs:label \"collected by assignment\" ;\n    rdfs:domain ir:Evidence ;\n    rdfs:range ir:IncidentAssignment .\n\nir:decision a owl:DatatypeProperty ;\n    rdfs:label \"decision\" ;\n    rdfs:domain ir:Approval ;\n    rdfs:range xsd:string .\n\nir:detectedAt a owl:DatatypeProperty ;\n    rdfs:label \"detected at\" ;\n    rdfs:domain ir:SecurityIncident ;\n    rdfs:range xsd:dateTime .\n\nir:executor a owl:ObjectProperty ;\n    rdfs:label \"designated executor assignment\" ;\n    rdfs:domain ir:ResponseAction ;\n    rdfs:range ir:IncidentAssignment .\n\nir:findingStatus a owl:DatatypeProperty ;\n    rdfs:label \"finding status\" ;\n    rdfs:domain ir:Finding ;\n    rdfs:range xsd:string .\n\nir:forAction a owl:ObjectProperty ;\n    rdfs:label \"decision about action\" ;\n    rdfs:domain ir:Approval ;\n    rdfs:range ir:ResponseAction .\n\nir:forIncident a owl:ObjectProperty ;\n    rdfs:label \"in incident\" ;\n    rdfs:range ir:SecurityIncident .\n\nir:governedBy a owl:ObjectProperty ;\n    rdfs:label \"governed by policy\" ;\n    rdfs:domain ir:ResponseAction ;\n    rdfs:range ir:AuthorizationPolicy .\n\nir:memberOf a owl:ObjectProperty ;\n    rdfs:label \"member of\" ;\n    rdfs:domain schema:Person ;\n    rdfs:range schema:Organization .\n\nir:observedAt a owl:DatatypeProperty ;\n    rdfs:label \"observed at\" ;\n    rdfs:domain ir:Evidence ;\n    rdfs:range xsd:dateTime .\n\nir:proposedBy a owl:ObjectProperty ;\n    rdfs:label \"proposed by assignment\" ;\n    rdfs:domain ir:ResponseAction ;\n    rdfs:range ir:IncidentAssignment .\n\nir:recordedAt a owl:DatatypeProperty ;\n    rdfs:label \"decision recorded at\" ;\n    rdfs:domain ir:Approval ;\n    rdfs:range xsd:dateTime ;\n    rdfs:subPropertyOf prov:generatedAtTime .\n\nir:requiredApproverRole a owl:ObjectProperty ;\n    rdfs:label \"requires decision from role\" ;\n    rdfs:domain ir:AuthorizationPolicy ;\n    rdfs:range ir:Role .\n\nir:requiredExecutorRole a owl:ObjectProperty ;\n    rdfs:label \"requires executor role\" ;\n    rdfs:domain ir:AuthorizationPolicy ;\n    rdfs:range ir:Role .\n\nir:severity a owl:DatatypeProperty ;\n    rdfs:label \"severity\" ;\n    rdfs:domain ir:SecurityIncident ;\n    rdfs:range xsd:string .\n\nir:sourceId a owl:DatatypeProperty ;\n    rdfs:label \"evidence source identifier\" ;\n    rdfs:domain ir:Evidence ;\n    rdfs:range xsd:string ;\n    rdfs:subPropertyOf schema:identifier .\n\nir:statement a owl:DatatypeProperty ;\n    rdfs:label \"finding statement\" ;\n    rdfs:domain ir:Finding ;\n    rdfs:range xsd:string .\n\nir:status a owl:DatatypeProperty ;\n    rdfs:label \"incident status\" ;\n    rdfs:domain ir:SecurityIncident ;\n    rdfs:range xsd:string .\n\nir:supportedBy a owl:ObjectProperty ;\n    rdfs:label \"supported by evidence\" ;\n    rdfs:domain ir:Finding ;\n    rdfs:range ir:Evidence ;\n    rdfs:subPropertyOf prov:wasDerivedFrom .\n\nir:target a owl:ObjectProperty ;\n    rdfs:label \"action target\" ;\n    rdfs:domain ir:ResponseAction ;\n    rdfs:subPropertyOf schema:object .\n\nir:threatensService a owl:ObjectProperty ;\n    rdfs:label \"puts service at risk\" ;\n    rdfs:domain ir:SecurityIncident ;\n    rdfs:range ir:BusinessService .\n\nir:usedBy a owl:ObjectProperty ;\n    rdfs:label \"used by\" ;\n    rdfs:domain ir:Asset ;\n    rdfs:range schema:Person .\n\nir:usedFor a owl:ObjectProperty ;\n    rdfs:label \"used to access service\" ;\n    rdfs:domain ir:Asset ;\n    rdfs:range ir:BusinessService .\n\nir:Actor a owl:Class ;\n    rdfs:label \"Actor\" .\n\nir:BusinessService a owl:Class ;\n    rdfs:label \"Business service\" ;\n    rdfs:subClassOf schema:Service .\n\nir:ContainmentAction a owl:Class ;\n    rdfs:label \"Containment action\" ;\n    rdfs:subClassOf ir:ResponseAction .\n\nir:AuthorizationPolicy a owl:Class ;\n    rdfs:label \"Example approval policy\" .\n\nir:Role a owl:Class ;\n    rdfs:label \"Incident role\" .\n\nir:Approval a owl:Class ;\n    rdfs:label \"Recorded decision about one action\" ;\n    rdfs:subClassOf prov:Entity .\n\nir:Asset a owl:Class ;\n    rdfs:label \"IT asset\" .\n\nir:Evidence a owl:Class ;\n    rdfs:label \"Evidence record\" ;\n    rdfs:subClassOf prov:Entity .\n\nir:Finding a owl:Class ;\n    rdfs:label \"Finding or hypothesis\" ;\n    rdfs:subClassOf prov:Entity .\n\nir:ResponseAction a owl:Class ;\n    rdfs:label \"Proposed response action\" ;\n    rdfs:subClassOf schema:Action .\n\nir:SecurityIncident a owl:Class ;\n    rdfs:label \"Security incident\" .\n\nir:IncidentAssignment a owl:Class ;\n    rdfs:label \"Actor assigned a role in one incident\" ;\n    rdfs:subClassOf schema:OrganizationRole .\n\n",
+  "facts": "@prefix ex: <https://example.org/demo/> .\n@prefix ir: <https://example.org/incident#> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n@prefix schema: <https://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\nex:CEOAssignment a ir:IncidentAssignment ;\n    ir:assignedActor ex:Jordan ;\n    ir:assignedRole ex:CEO ;\n    ir:forIncident ex:INC001 ;\n    schema:member ex:Jordan ;\n    schema:roleName \"CEO\" .\n\nex:CommsAssignment a ir:IncidentAssignment ;\n    ir:assignedActor ex:Robin ;\n    ir:assignedRole ex:Communications ;\n    ir:forIncident ex:INC001 ;\n    schema:member ex:Robin ;\n    schema:roleName \"Communications lead\" .\n\nex:IsolationGrant a ir:Approval ;\n    ir:approvedBy ex:CISOAssignment ;\n    ir:decision \"Granted\" ;\n    ir:forAction ex:IsolateLaptop ;\n    ir:recordedAt \"2026-10-27T06:05:00+00:00\"^^xsd:dateTime .\n\nex:LegalAssignment a ir:IncidentAssignment ;\n    ir:assignedActor ex:Lee ;\n    ir:assignedRole ex:Legal ;\n    ir:forIncident ex:INC001 ;\n    schema:member ex:Lee ;\n    schema:roleName \"Legal counsel\" .\n\nex:OwnerAssignment a ir:IncidentAssignment ;\n    ir:assignedActor ex:Sam ;\n    ir:assignedRole ex:BusinessOwner ;\n    ir:forIncident ex:INC001 ;\n    schema:member ex:Sam ;\n    schema:roleName \"Payroll owner\" .\n\nex:PausePayroll a ir:ServicePauseAction ;\n    rdfs:label \"Pause Payroll\" ;\n    ir:executor ex:ITAssignment ;\n    ir:forIncident ex:INC001 ;\n    ir:governedBy ex:PayrollPausePolicy ;\n    ir:proposedBy ex:CommandAssignment ;\n    ir:target ex:Payroll ;\n    schema:actionStatus schema:PotentialActionStatus ;\n    schema:agent ex:Eli ;\n    schema:name \"Pause Payroll\" .\n\nex:PossibleExfiltration a ir:Finding ;\n    prov:wasAttributedTo ex:Dana ;\n    ir:assertedBy ex:SOCAssignment ;\n    ir:findingStatus \"Suspected\" ;\n    ir:forIncident ex:INC001 ;\n    ir:statement \"Possible data exfiltration from Laptop-42\" ;\n    ir:supportedBy ex:EDRAlert .\n\nex:UserReport a ir:Evidence ;\n    rdfs:label \"User reported opening a suspicious attachment\" ;\n    prov:wasAttributedTo ex:Alex ;\n    ir:collectedBy ex:UserAssignment ;\n    ir:forIncident ex:INC001 ;\n    ir:observedAt \"2026-10-27T06:00:00+00:00\"^^xsd:dateTime ;\n    ir:sourceId \"synthetic-helpdesk-001\" ;\n    schema:name \"User reported opening a suspicious attachment\" .\n\nex:BusinessOwner a ir:Role ;\n    rdfs:label \"Payroll owner\" ;\n    rdfs:comment \"Explains service impact and helps validate recovery.\" ;\n    schema:name \"Payroll owner\" .\n\nex:CISOAssignment a ir:IncidentAssignment ;\n    ir:assignedActor ex:Morgan ;\n    ir:assignedRole ex:CISO ;\n    ir:forIncident ex:INC001 ;\n    schema:member ex:Morgan ;\n    schema:roleName \"CISO\" .\n\nex:CommandAssignment a ir:IncidentAssignment ;\n    ir:assignedActor ex:Taylor ;\n    ir:assignedRole ex:IncidentCommander ;\n    ir:forIncident ex:INC001 ;\n    schema:member ex:Taylor ;\n    schema:roleName \"Incident commander\" .\n\nex:Communications a ir:Role ;\n    rdfs:label \"Communications lead\" ;\n    rdfs:comment \"Prepares audience-appropriate updates from approved findings.\" ;\n    schema:name \"Communications lead\" .\n\nex:EDRAlert a ir:Evidence ;\n    rdfs:label \"EDR reported unusual outbound traffic\" ;\n    prov:wasAttributedTo ex:Dana ;\n    ir:collectedBy ex:SOCAssignment ;\n    ir:forIncident ex:INC001 ;\n    ir:observedAt \"2026-10-27T06:02:00+00:00\"^^xsd:dateTime ;\n    ir:sourceId \"synthetic-edr-007\" ;\n    schema:name \"EDR reported unusual outbound traffic\" .\n\nex:EndUser a ir:Role ;\n    rdfs:label \"End user\" ;\n    rdfs:comment \"Reports symptoms and follows response instructions.\" ;\n    schema:name \"End user\" .\n\nex:IT a schema:Organization ;\n    rdfs:label \"IT operations\" ;\n    schema:member ex:ITAssignment ;\n    schema:name \"IT operations\" .\n\nex:IncidentCommander a ir:Role ;\n    rdfs:label \"Incident commander\" ;\n    rdfs:comment \"Coordinates the incident, tasks and updates.\" ;\n    schema:name \"Incident commander\" .\n\nex:IsolateLaptop a ir:EndpointIsolationAction ;\n    rdfs:label \"Isolate Laptop-42\" ;\n    ir:executor ex:ITAssignment ;\n    ir:forIncident ex:INC001 ;\n    ir:governedBy ex:IsolationPolicy ;\n    ir:proposedBy ex:SOCAssignment ;\n    ir:target ex:Laptop42 ;\n    schema:actionStatus schema:PotentialActionStatus ;\n    schema:agent ex:Eli ;\n    schema:name \"Isolate Laptop-42\" .\n\nex:IsolationPolicy a ir:AuthorizationPolicy ;\n    rdfs:label \"Example endpoint isolation policy\" ;\n    ir:requiredApproverRole ex:CISO ;\n    ir:requiredExecutorRole ex:ITResponder ;\n    schema:name \"Example endpoint isolation policy\" .\n\nex:Legal a ir:Role ;\n    rdfs:label \"Legal counsel\" ;\n    rdfs:comment \"Assesses legal obligations and notification requirements.\" ;\n    schema:name \"Legal counsel\" .\n\nex:PayrollPausePolicy a ir:AuthorizationPolicy ;\n    rdfs:label \"Example major service interruption policy\" ;\n    ir:requiredApproverRole ex:CEO ;\n    ir:requiredExecutorRole ex:ITResponder ;\n    schema:name \"Example major service interruption policy\" .\n\nex:SOC a schema:Organization ;\n    rdfs:label \"Security Operations Center\" ;\n    schema:member ex:SOCAssignment ;\n    schema:name \"Security Operations Center\" .\n\nex:SOCAnalyst a ir:Role ;\n    rdfs:label \"SOC analyst\" ;\n    rdfs:comment \"Triages alerts, preserves evidence, proposes containment.\" ;\n    schema:name \"SOC analyst\" .\n\nex:UserAssignment a ir:IncidentAssignment ;\n    ir:assignedActor ex:Alex ;\n    ir:assignedRole ex:EndUser ;\n    ir:forIncident ex:INC001 ;\n    schema:member ex:Alex ;\n    schema:roleName \"End user\" .\n\nex:CEO a ir:Role ;\n    rdfs:label \"CEO\" ;\n    rdfs:comment \"Makes major business tradeoffs within organizational policy.\" ;\n    schema:name \"CEO\" .\n\nex:CISO a ir:Role ;\n    rdfs:label \"CISO\" ;\n    rdfs:comment \"Makes security-risk decisions within organizational policy.\" ;\n    schema:name \"CISO\" .\n\nex:Jordan a schema:Person ;\n    rdfs:label \"Jordan\" ;\n    schema:name \"Jordan\" .\n\nex:Laptop42 a ir:Workstation ;\n    rdfs:label \"Laptop-42\" ;\n    ir:usedBy ex:Alex ;\n    ir:usedFor ex:Payroll ;\n    schema:name \"Laptop-42\" .\n\nex:Lee a schema:Person ;\n    rdfs:label \"Lee\" ;\n    schema:name \"Lee\" .\n\nex:Morgan a schema:Person ;\n    rdfs:label \"Morgan\" ;\n    schema:name \"Morgan\" .\n\nex:Robin a schema:Person ;\n    rdfs:label \"Robin\" ;\n    schema:name \"Robin\" .\n\nex:Sam a schema:Person ;\n    rdfs:label \"Sam\" ;\n    schema:name \"Sam\" .\n\nex:Taylor a schema:Person ;\n    rdfs:label \"Taylor\" ;\n    schema:name \"Taylor\" .\n\nex:ITAssignment a ir:IncidentAssignment ;\n    ir:assignedActor ex:Eli ;\n    ir:assignedRole ex:ITResponder ;\n    ir:forIncident ex:INC001 ;\n    schema:member ex:Eli ;\n    schema:roleName \"IT responder\" .\n\nex:ITResponder a ir:Role ;\n    rdfs:label \"IT responder\" ;\n    rdfs:comment \"Implements containment and recovery through authorized tools.\" ;\n    schema:name \"IT responder\" .\n\nex:Payroll a ir:BusinessService ;\n    rdfs:label \"Payroll\" ;\n    schema:name \"Payroll\" .\n\nex:Alex a schema:Person ;\n    rdfs:label \"Alex\" ;\n    schema:name \"Alex\" .\n\nex:Dana a schema:Person ;\n    rdfs:label \"Dana\" ;\n    ir:memberOf ex:SOC ;\n    schema:name \"Dana\" .\n\nex:Eli a schema:Person ;\n    rdfs:label \"Eli\" ;\n    ir:memberOf ex:IT ;\n    schema:name \"Eli\" .\n\nex:SOCAssignment a ir:IncidentAssignment ;\n    ir:assignedActor ex:Dana ;\n    ir:assignedRole ex:SOCAnalyst ;\n    ir:forIncident ex:INC001 ;\n    schema:member ex:Dana ;\n    schema:roleName \"SOC analyst\" .\n\nex:INC001 a ir:SecurityIncident ;\n    rdfs:label \"INC-001: suspicious payroll workstation\" ;\n    ir:affectsAsset ex:Laptop42 ;\n    ir:detectedAt \"2026-10-27T06:00:00+00:00\"^^xsd:dateTime ;\n    ir:severity \"High\" ;\n    ir:status \"Investigating\" ;\n    ir:threatensService ex:Payroll ;\n    schema:name \"INC-001: suspicious payroll workstation\" .\n\n",
+  "shapes": "@prefix ir:   <https://example.org/incident#> .\n@prefix ex:   <https://example.org/demo/> .\n@prefix sh:   <http://www.w3.org/ns/shacl#> .\n@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .\n@prefix schema: <https://schema.org/> .\n\n# Schema.org supplies shared meaning. This application adds a strict constraint.\nex:PersonNameShape a sh:NodeShape ; sh:targetClass schema:Person ;\n    sh:property [ sh:path schema:name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] .\n\nex:AssignmentShape a sh:NodeShape ; sh:targetClass ir:IncidentAssignment ;\n    sh:property [ sh:path ir:assignedActor ; sh:minCount 1 ; sh:maxCount 1 ; sh:or ( [ sh:class schema:Person ] [ sh:class schema:Organization ] ) ] ;\n    sh:property [ sh:path ir:assignedRole ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ir:Role ] ;\n    sh:property [ sh:path ir:forIncident ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ir:SecurityIncident ] .\n\nex:IncidentShape a sh:NodeShape ; sh:targetClass ir:SecurityIncident ;\n    sh:property [ sh:path ir:severity ; sh:minCount 1 ; sh:maxCount 1 ; sh:in ( \"Low\" \"Medium\" \"High\" \"Critical\" ) ] ;\n    sh:property [ sh:path ir:status ; sh:minCount 1 ; sh:maxCount 1 ; sh:in ( \"Investigating\" \"Contained\" \"Recovering\" \"Closed\" ) ] ;\n    sh:property [ sh:path ir:detectedAt ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:dateTime ] ;\n    sh:property [ sh:path ir:affectsAsset ; sh:minCount 1 ; sh:class ir:Asset ] .\n\nex:EvidenceShape a sh:NodeShape ; sh:targetClass ir:Evidence ;\n    sh:property [ sh:path ir:forIncident ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ir:SecurityIncident ] ;\n    sh:property [ sh:path ir:collectedBy ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ir:IncidentAssignment ] ;\n    sh:property [ sh:path ir:sourceId ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;\n    sh:property [ sh:path ir:observedAt ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:dateTime ] .\n\nex:FindingShape a sh:NodeShape ; sh:targetClass ir:Finding ;\n    sh:property [ sh:path ir:forIncident ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ir:SecurityIncident ] ;\n    sh:property [ sh:path ir:statement ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;\n    sh:property [ sh:path ir:findingStatus ; sh:minCount 1 ; sh:maxCount 1 ; sh:in ( \"Suspected\" \"Confirmed\" \"Refuted\" ) ] ;\n    sh:property [ sh:path ir:supportedBy ; sh:minCount 1 ; sh:class ir:Evidence ] ;\n    sh:property [ sh:path ir:assertedBy ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ir:IncidentAssignment ] .\n\nex:PolicyShape a sh:NodeShape ; sh:targetClass ir:AuthorizationPolicy ;\n    sh:property [ sh:path ir:requiredApproverRole ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ir:Role ] ;\n    sh:property [ sh:path ir:requiredExecutorRole ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ir:Role ] .\n\nex:ActionShape a sh:NodeShape ; sh:targetClass ir:ResponseAction ;\n    sh:property [ sh:path ir:forIncident ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ir:SecurityIncident ] ;\n    sh:property [ sh:path ir:target ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ] ;\n    sh:property [ sh:path ir:proposedBy ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ir:IncidentAssignment ] ;\n    sh:property [ sh:path ir:executor ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ir:IncidentAssignment ] ;\n    sh:property [ sh:path ir:governedBy ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ir:AuthorizationPolicy ] ;\n    sh:sparql [\n        sh:message \"Action proposer and executor must be assigned to the action's incident.\" ;\n        sh:select \"\"\"\n          PREFIX ir: <https://example.org/incident#>\n          SELECT $this WHERE {\n            $this ir:forIncident ?incident .\n            { $this ir:proposedBy ?assignment } UNION { $this ir:executor ?assignment }\n            ?assignment ir:forIncident ?other .\n            FILTER (?other != ?incident)\n          }\n        \"\"\"\n    ] ;\n    sh:sparql [\n        sh:message \"Action executor must hold the role required by its policy.\" ;\n        sh:select \"\"\"\n          PREFIX ir: <https://example.org/incident#>\n          SELECT $this WHERE {\n            $this ir:governedBy ?policy ; ir:executor ?executor .\n            ?policy ir:requiredExecutorRole ?requiredRole .\n            ?executor ir:assignedRole ?actualRole .\n            FILTER (?requiredRole != ?actualRole)\n          }\n        \"\"\"\n    ] .\n\nex:ApprovalShape a sh:NodeShape ; sh:targetClass ir:Approval ;\n    sh:property [ sh:path ir:forAction ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ir:ResponseAction ] ;\n    sh:property [ sh:path ir:approvedBy ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ir:IncidentAssignment ] ;\n    sh:property [ sh:path ir:decision ; sh:minCount 1 ; sh:maxCount 1 ; sh:in ( \"Granted\" \"Denied\" ) ] ;\n    sh:property [ sh:path ir:recordedAt ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:dateTime ] ;\n    sh:sparql [\n        sh:message \"Approval must come from the policy's required role in the same incident.\" ;\n        sh:select \"\"\"\n          PREFIX ir: <https://example.org/incident#>\n          SELECT $this WHERE {\n            $this ir:forAction ?action ; ir:approvedBy ?assignment .\n            ?action ir:forIncident ?incident ; ir:governedBy ?policy .\n            ?policy ir:requiredApproverRole ?requiredRole .\n            ?assignment ir:forIncident ?assignedIncident ; ir:assignedRole ?actualRole .\n            FILTER (?incident != ?assignedIncident || ?requiredRole != ?actualRole)\n          }\n        \"\"\"\n    ] .\n",
+  "queries": {
+    "01-roster.rq": "PREFIX ir: <https://example.org/incident#>\nPREFIX ex: <https://example.org/demo/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nSELECT ?person ?role ?responsibility WHERE {\n  ?assignment a ir:IncidentAssignment ; ir:forIncident ex:INC001 ;\n              ir:assignedActor ?actor ; ir:assignedRole ?roleNode .\n  ?actor rdfs:label ?person .\n  ?roleNode rdfs:label ?role ; rdfs:comment ?responsibility .\n} ORDER BY ?role\n",
+    "02-impact.rq": "PREFIX ir: <https://example.org/incident#>\nPREFIX ex: <https://example.org/demo/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nSELECT ?asset ?user ?serviceAtRisk WHERE {\n  ex:INC001 ir:affectsAsset ?assetNode ; ir:threatensService ?serviceNode .\n  ?assetNode ir:usedBy ?personNode ; rdfs:label ?asset .\n  ?personNode rdfs:label ?user .\n  ?serviceNode rdfs:label ?serviceAtRisk .\n}\n",
+    "03-action-decisions.rq": "# A graph query for this toy policy, NOT a production authorization boundary.\n# No row with a grant means only that no matching grant is recorded here.\nPREFIX ir: <https://example.org/incident#>\nPREFIX ex: <https://example.org/demo/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nSELECT ?action ?executor ?approverRole ?approver ?decisionState WHERE {\n  ?actionNode a ir:ResponseAction ; ir:forIncident ex:INC001 ;\n              rdfs:label ?action ; ir:executor ?executorAssignment ; ir:governedBy ?policy .\n  ?executorAssignment ir:forIncident ex:INC001 ; ir:assignedActor ?executorNode .\n  ?executorNode rdfs:label ?executor .\n  ?policy ir:requiredApproverRole ?role ; ir:requiredExecutorRole ?executorRole .\n  ?executorAssignment ir:assignedRole ?executorRole .\n  ?role rdfs:label ?approverRole .\n  OPTIONAL {\n    ?approverAssignment ir:forIncident ex:INC001 ; ir:assignedRole ?role ; ir:assignedActor ?approverNode .\n    ?approverNode rdfs:label ?approverName .\n    OPTIONAL {\n      ?grant a ir:Approval ; ir:forAction ?actionNode ;\n             ir:approvedBy ?approverAssignment ; ir:decision \"Granted\" ; ir:recordedAt ?when .\n    }\n  }\n  BIND(COALESCE(?approverName, \"No one assigned\") AS ?approver)\n  BIND(IF(BOUND(?grant), \"Matching grant recorded\", \"No matching grant recorded\") AS ?decisionState)\n} ORDER BY ?action\n",
+    "04-findings.rq": "PREFIX ir: <https://example.org/incident#>\nPREFIX ex: <https://example.org/demo/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nSELECT ?finding ?status ?evidence ?source ?observedAt ?analyst WHERE {\n  ?findingNode a ir:Finding ; ir:forIncident ex:INC001 ; ir:statement ?finding ;\n               ir:findingStatus ?status ; ir:supportedBy ?evidenceNode ; ir:assertedBy ?assignment .\n  ?evidenceNode rdfs:label ?evidence ; ir:sourceId ?source ; ir:observedAt ?observedAt .\n  ?assignment ir:assignedActor ?person .\n  ?person rdfs:label ?analyst .\n}\n",
+    "05-inference.rq": "# This triple is NOT explicitly asserted. RDFS derives it through two subclasses.\nPREFIX ir: <https://example.org/incident#>\nPREFIX ex: <https://example.org/demo/>\nASK { ex:IsolateLaptop a ir:ResponseAction }\n",
+    "06-public-people.rq": "PREFIX schema: <https://schema.org/>\nSELECT ?name WHERE {\n  ?person a schema:Person ; schema:name ?name .\n} ORDER BY ?name\n",
+    "07-public-roles.rq": "PREFIX schema: <https://schema.org/>\nPREFIX ir: <https://example.org/incident#>\nPREFIX ex: <https://example.org/demo/>\nSELECT ?name ?role WHERE {\n  ?assignment a schema:OrganizationRole ;\n    schema:member ?person ; schema:roleName ?role ; ir:forIncident ex:INC001 .\n  ?person schema:name ?name .\n} ORDER BY ?role\n",
+    "08-public-provenance.rq": "PREFIX schema: <https://schema.org/>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX ir: <https://example.org/incident#>\nPREFIX ex: <https://example.org/demo/>\nSELECT ?status ?source ?author WHERE {\n  ex:PossibleExfiltration prov:wasDerivedFrom ?evidence ;\n    prov:wasAttributedTo ?person ; ir:findingStatus ?status .\n  ?evidence schema:identifier ?source .\n  ?person schema:name ?author .\n}\n",
+    "09-public-inference.rq": "PREFIX schema: <https://schema.org/>\nPREFIX ex: <https://example.org/demo/>\nASK { ex:IsolateLaptop a schema:Action }\n"
+  },
+  "results": {
+    "load": {
+      "ok": true,
+      "path": "example/incident.ttl",
+      "triples_loaded": 431
+    },
+    "before_reasoning": {
+      "result": false
+    },
+    "public_before_reasoning": {
+      "result": false
+    },
+    "reasoning": {
+      "certificate": {
+        "asserted": 431,
+        "asserted_sha256": "2cfb69c91bd5cb5d5493faa20a83b5c52971fb60a7d8177651167da14f7ce963",
+        "asserted_sha256_means": "the digest of asserted.tsv, written beside it as asserted.sha256. A holder of a store recomputes it with `certificate-check <dir>` and learns whether this certificate is about that store (issue #158). It binds the certificate to a selection of BYTES, not to a state of the world",
+        "by_rule": {
+          "rdfs11": 25,
+          "rdfs2": 2,
+          "rdfs3": 11,
+          "rdfs5": 1,
+          "rdfs7": 10,
+          "rdfs9": 67
+        },
+        "check_with": "cd lean && lake exe oo-cert <dir>/asserted.tsv <dir>/derivations.tsv",
+        "derivations": 116,
+        "dir": "example/output/certificate",
+        "format": "oo-cert/1",
+        "graphs_excluded": [
+          "https://open-ontologies.org/graph/inferred"
+        ],
+        "graphs_read": [
+          "<default>"
+        ],
+        "scope": {
+          "complete": true,
+          "default_graph": true,
+          "note": "every graph in the store, the default graph included. On a store that keeps several versions of an entity in several named graphs this union is a state that held at no instant.",
+          "selector": "whole-store",
+          "semantics_version": "temporal/2"
+        },
+        "scope_file": "example/output/certificate/scope.tsv",
+        "scope_means": "oo-cert verifies that every derivation follows from the triples in asserted.tsv. It does not and cannot check that asserted.tsv is the graph you meant to reason over. scope.tsv records which graphs were read; a reader who cares whether this answer is about a state that existed has to read it."
+      },
+      "final_triples": 547,
+      "fixpoint_reached": true,
+      "inferred_count": 116,
+      "initial_triples": 431,
+      "iterations": 4,
+      "profile_used": "rdfs",
+      "sample_inferences": [
+        "<https://example.org/demo/Lee> a <https://schema.org/Thing>",
+        "<https://example.org/demo/Payroll> a <https://schema.org/Intangible>",
+        "<https://example.org/demo/PausePayroll> a <https://example.org/incident#ContainmentAction>",
+        "<https://example.org/demo/Payroll> a <https://schema.org/Thing>",
+        "<https://example.org/demo/ITAssignment> a <https://schema.org/Role>",
+        "<https://example.org/demo/Jordan> a <https://example.org/incident#Actor>",
+        "<https://example.org/demo/Jordan> a <https://schema.org/Thing>",
+        "<https://example.org/demo/SOCAssignment> a <https://schema.org/Thing>",
+        "<https://example.org/demo/CommsAssignment> a <https://schema.org/Thing>",
+        "<https://example.org/demo/CEOAssignment> a <https://schema.org/OrganizationRole>"
+      ],
+      "scope": {
+        "complete": true,
+        "default_graph": true,
+        "note": "every graph in the store, the default graph included. On a store that keeps several versions of an entity in several named graphs this union is a state that held at no instant.",
+        "selector": "whole-store",
+        "semantics_version": "temporal/2"
+      }
+    },
+    "valid_shapes": {
+      "conforms": true,
+      "focus_nodes": 27,
+      "focus_nodes_by_target": [
+        {
+          "focus_nodes": 1,
+          "shape": "https://example.org/demo/ApprovalShape",
+          "target": "https://example.org/incident#Approval",
+          "target_form": "class"
+        },
+        {
+          "focus_nodes": 2,
+          "shape": "https://example.org/demo/ActionShape",
+          "target": "https://example.org/incident#ResponseAction",
+          "target_form": "class"
+        },
+        {
+          "focus_nodes": 2,
+          "shape": "https://example.org/demo/PolicyShape",
+          "target": "https://example.org/incident#AuthorizationPolicy",
+          "target_form": "class"
+        },
+        {
+          "focus_nodes": 1,
+          "shape": "https://example.org/demo/FindingShape",
+          "target": "https://example.org/incident#Finding",
+          "target_form": "class"
+        },
+        {
+          "focus_nodes": 2,
+          "shape": "https://example.org/demo/EvidenceShape",
+          "target": "https://example.org/incident#Evidence",
+          "target_form": "class"
+        },
+        {
+          "focus_nodes": 1,
+          "shape": "https://example.org/demo/IncidentShape",
+          "target": "https://example.org/incident#SecurityIncident",
+          "target_form": "class"
+        },
+        {
+          "focus_nodes": 9,
+          "shape": "https://example.org/demo/AssignmentShape",
+          "target": "https://example.org/incident#IncidentAssignment",
+          "target_form": "class"
+        },
+        {
+          "focus_nodes": 9,
+          "shape": "https://example.org/demo/PersonNameShape",
+          "target": "https://schema.org/Person",
+          "target_form": "class"
+        }
+      ],
+      "scope": {
+        "complete": true,
+        "default_graph": true,
+        "note": "every graph in the store, the default graph included. On a store that keeps several versions of an entity in several named graphs this union is a state that held at no instant.",
+        "selector": "whole-store",
+        "semantics_version": "temporal/2"
+      },
+      "unmatched_shapes": [],
+      "violation_count": 0,
+      "violations": []
+    },
+    "01-roster": {
+      "results": [
+        {
+          "person": "\"Jordan\"",
+          "responsibility": "\"Makes major business tradeoffs within organizational policy.\"",
+          "role": "\"CEO\""
+        },
+        {
+          "person": "\"Morgan\"",
+          "responsibility": "\"Makes security-risk decisions within organizational policy.\"",
+          "role": "\"CISO\""
+        },
+        {
+          "person": "\"Robin\"",
+          "responsibility": "\"Prepares audience-appropriate updates from approved findings.\"",
+          "role": "\"Communications lead\""
+        },
+        {
+          "person": "\"Alex\"",
+          "responsibility": "\"Reports symptoms and follows response instructions.\"",
+          "role": "\"End user\""
+        },
+        {
+          "person": "\"Eli\"",
+          "responsibility": "\"Implements containment and recovery through authorized tools.\"",
+          "role": "\"IT responder\""
+        },
+        {
+          "person": "\"Taylor\"",
+          "responsibility": "\"Coordinates the incident, tasks and updates.\"",
+          "role": "\"Incident commander\""
+        },
+        {
+          "person": "\"Lee\"",
+          "responsibility": "\"Assesses legal obligations and notification requirements.\"",
+          "role": "\"Legal counsel\""
+        },
+        {
+          "person": "\"Sam\"",
+          "responsibility": "\"Explains service impact and helps validate recovery.\"",
+          "role": "\"Payroll owner\""
+        },
+        {
+          "person": "\"Dana\"",
+          "responsibility": "\"Triages alerts, preserves evidence, proposes containment.\"",
+          "role": "\"SOC analyst\""
+        }
+      ],
+      "variables": [
+        "person",
+        "role",
+        "responsibility"
+      ]
+    },
+    "02-impact": {
+      "results": [
+        {
+          "asset": "\"Laptop-42\"",
+          "serviceAtRisk": "\"Payroll\"",
+          "user": "\"Alex\""
+        }
+      ],
+      "variables": [
+        "asset",
+        "user",
+        "serviceAtRisk"
+      ]
+    },
+    "03-action-decisions": {
+      "results": [
+        {
+          "action": "\"Isolate Laptop-42\"",
+          "approver": "\"Morgan\"",
+          "approverRole": "\"CISO\"",
+          "decisionState": "\"Matching grant recorded\"",
+          "executor": "\"Eli\""
+        },
+        {
+          "action": "\"Pause Payroll\"",
+          "approver": "\"Jordan\"",
+          "approverRole": "\"CEO\"",
+          "decisionState": "\"No matching grant recorded\"",
+          "executor": "\"Eli\""
+        }
+      ],
+      "variables": [
+        "action",
+        "executor",
+        "approverRole",
+        "approver",
+        "decisionState"
+      ]
+    },
+    "04-findings": {
+      "results": [
+        {
+          "analyst": "\"Dana\"",
+          "evidence": "\"EDR reported unusual outbound traffic\"",
+          "finding": "\"Possible data exfiltration from Laptop-42\"",
+          "observedAt": "\"2026-10-27T06:02:00Z\"^^<http://www.w3.org/2001/XMLSchema#dateTime>",
+          "source": "\"synthetic-edr-007\"",
+          "status": "\"Suspected\""
+        }
+      ],
+      "variables": [
+        "finding",
+        "status",
+        "evidence",
+        "source",
+        "observedAt",
+        "analyst"
+      ]
+    },
+    "05-inference": {
+      "result": true
+    },
+    "06-public-people": {
+      "results": [
+        {
+          "name": "\"Alex\""
+        },
+        {
+          "name": "\"Dana\""
+        },
+        {
+          "name": "\"Eli\""
+        },
+        {
+          "name": "\"Jordan\""
+        },
+        {
+          "name": "\"Lee\""
+        },
+        {
+          "name": "\"Morgan\""
+        },
+        {
+          "name": "\"Robin\""
+        },
+        {
+          "name": "\"Sam\""
+        },
+        {
+          "name": "\"Taylor\""
+        }
+      ],
+      "variables": [
+        "name"
+      ]
+    },
+    "07-public-roles": {
+      "results": [
+        {
+          "name": "\"Jordan\"",
+          "role": "\"CEO\""
+        },
+        {
+          "name": "\"Morgan\"",
+          "role": "\"CISO\""
+        },
+        {
+          "name": "\"Robin\"",
+          "role": "\"Communications lead\""
+        },
+        {
+          "name": "\"Alex\"",
+          "role": "\"End user\""
+        },
+        {
+          "name": "\"Eli\"",
+          "role": "\"IT responder\""
+        },
+        {
+          "name": "\"Taylor\"",
+          "role": "\"Incident commander\""
+        },
+        {
+          "name": "\"Lee\"",
+          "role": "\"Legal counsel\""
+        },
+        {
+          "name": "\"Sam\"",
+          "role": "\"Payroll owner\""
+        },
+        {
+          "name": "\"Dana\"",
+          "role": "\"SOC analyst\""
+        }
+      ],
+      "variables": [
+        "name",
+        "role"
+      ]
+    },
+    "08-public-provenance": {
+      "results": [
+        {
+          "author": "\"Dana\"",
+          "source": "\"synthetic-edr-007\"",
+          "status": "\"Suspected\""
+        }
+      ],
+      "variables": [
+        "status",
+        "source",
+        "author"
+      ]
+    },
+    "09-public-inference": {
+      "result": true
+    },
+    "invalid_shapes": {
+      "conforms": false,
+      "focus_nodes": 28,
+      "focus_nodes_by_target": [
+        {
+          "focus_nodes": 2,
+          "shape": "https://example.org/demo/ApprovalShape",
+          "target": "https://example.org/incident#Approval",
+          "target_form": "class"
+        },
+        {
+          "focus_nodes": 2,
+          "shape": "https://example.org/demo/ActionShape",
+          "target": "https://example.org/incident#ResponseAction",
+          "target_form": "class"
+        },
+        {
+          "focus_nodes": 2,
+          "shape": "https://example.org/demo/PolicyShape",
+          "target": "https://example.org/incident#AuthorizationPolicy",
+          "target_form": "class"
+        },
+        {
+          "focus_nodes": 1,
+          "shape": "https://example.org/demo/FindingShape",
+          "target": "https://example.org/incident#Finding",
+          "target_form": "class"
+        },
+        {
+          "focus_nodes": 2,
+          "shape": "https://example.org/demo/EvidenceShape",
+          "target": "https://example.org/incident#Evidence",
+          "target_form": "class"
+        },
+        {
+          "focus_nodes": 1,
+          "shape": "https://example.org/demo/IncidentShape",
+          "target": "https://example.org/incident#SecurityIncident",
+          "target_form": "class"
+        },
+        {
+          "focus_nodes": 9,
+          "shape": "https://example.org/demo/AssignmentShape",
+          "target": "https://example.org/incident#IncidentAssignment",
+          "target_form": "class"
+        },
+        {
+          "focus_nodes": 9,
+          "shape": "https://example.org/demo/PersonNameShape",
+          "target": "https://schema.org/Person",
+          "target_form": "class"
+        }
+      ],
+      "scope": {
+        "complete": true,
+        "default_graph": true,
+        "note": "every graph in the store, the default graph included. On a store that keeps several versions of an entity in several named graphs this union is a state that held at no instant.",
+        "selector": "whole-store",
+        "semantics_version": "temporal/2"
+      },
+      "unmatched_shapes": [],
+      "violation_count": 1,
+      "violations": [
+        {
+          "constraint": "sparql",
+          "focus_node": "https://example.org/demo/WrongRoleGrant",
+          "message": "Approval must come from the policy's required role in the same incident.",
+          "node_shape": "https://example.org/demo/ApprovalShape",
+          "severity": "Violation",
+          "source_constraint_component": "http://www.w3.org/ns/shacl#SPARQLConstraintComponent",
+          "source_shape": "https://example.org/demo/ApprovalShape"
+        }
+      ]
+    },
+    "invalid_shapes_exit_code": 1,
+    "vocab_valid": {
+      "conforms": true,
+      "hallucinated_terms": [],
+      "checked_namespaces": [
+        "http://www.w3.org/ns/prov#",
+        "https://example.org/incident#",
+        "https://schema.org/"
+      ],
+      "predicates_checked": 37,
+      "types_checked": 13,
+      "ontology_terms": 68
+    },
+    "vocab_invented": {
+      "conforms": false,
+      "hallucinated_terms": [
+        "https://example.org/incident#jobTitleLabel"
+      ],
+      "checked_namespaces": [
+        "http://www.w3.org/ns/prov#",
+        "https://example.org/incident#",
+        "https://schema.org/"
+      ],
+      "predicates_checked": 1,
+      "types_checked": 0,
+      "ontology_terms": 68
+    },
+    "vocab_name_value": {
+      "conforms": true,
+      "hallucinated_terms": [],
+      "checked_namespaces": [
+        "http://www.w3.org/ns/prov#",
+        "https://example.org/incident#",
+        "https://schema.org/"
+      ],
+      "predicates_checked": 2,
+      "types_checked": 1,
+      "ontology_terms": 68
+    },
+    "invalid_name_shapes": {
+      "conforms": false,
+      "focus_nodes": 27,
+      "focus_nodes_by_target": [
+        {
+          "focus_nodes": 1,
+          "shape": "https://example.org/demo/ApprovalShape",
+          "target": "https://example.org/incident#Approval",
+          "target_form": "class"
+        },
+        {
+          "focus_nodes": 2,
+          "shape": "https://example.org/demo/ActionShape",
+          "target": "https://example.org/incident#ResponseAction",
+          "target_form": "class"
+        },
+        {
+          "focus_nodes": 2,
+          "shape": "https://example.org/demo/PolicyShape",
+          "target": "https://example.org/incident#AuthorizationPolicy",
+          "target_form": "class"
+        },
+        {
+          "focus_nodes": 1,
+          "shape": "https://example.org/demo/FindingShape",
+          "target": "https://example.org/incident#Finding",
+          "target_form": "class"
+        },
+        {
+          "focus_nodes": 2,
+          "shape": "https://example.org/demo/EvidenceShape",
+          "target": "https://example.org/incident#Evidence",
+          "target_form": "class"
+        },
+        {
+          "focus_nodes": 1,
+          "shape": "https://example.org/demo/IncidentShape",
+          "target": "https://example.org/incident#SecurityIncident",
+          "target_form": "class"
+        },
+        {
+          "focus_nodes": 9,
+          "shape": "https://example.org/demo/AssignmentShape",
+          "target": "https://example.org/incident#IncidentAssignment",
+          "target_form": "class"
+        },
+        {
+          "focus_nodes": 9,
+          "shape": "https://example.org/demo/PersonNameShape",
+          "target": "https://schema.org/Person",
+          "target_form": "class"
+        }
+      ],
+      "scope": {
+        "complete": true,
+        "default_graph": true,
+        "note": "every graph in the store, the default graph included. On a store that keeps several versions of an entity in several named graphs this union is a state that held at no instant.",
+        "selector": "whole-store",
+        "semantics_version": "temporal/2"
+      },
+      "unmatched_shapes": [],
+      "violation_count": 1,
+      "violations": [
+        {
+          "constraint": "datatype",
+          "focus_node": "https://example.org/demo/Dana",
+          "message": "Value does not have datatype <http://www.w3.org/2001/XMLSchema#string>",
+          "node_shape": "https://example.org/demo/PersonNameShape",
+          "path": "https://schema.org/name",
+          "result_path": "https://schema.org/name",
+          "severity": "Violation",
+          "source_constraint_component": "http://www.w3.org/ns/shacl#DatatypeConstraintComponent",
+          "source_shape": "_:add77cddfe541967606434e90b2b276"
+        }
+      ]
+    },
+    "change_plan": {
+      "added_classes": [],
+      "added_individuals": [],
+      "added_properties": [],
+      "blast_radius": {
+        "triples_affected": 0
+      },
+      "conservativity": {
+        "base_certificate": {
+          "asserted": 431,
+          "checker_exit": 1,
+          "checker_report": null,
+          "derivations": 175,
+          "iteration_cap": 64,
+          "iterations": 4,
+          "reached_fixpoint": true,
+          "skipped": "the verified checker REJECTED this certificate, so nothing in this report is checked: uncaught exception: failed to locate application",
+          "theorem": null,
+          "verdict": "rejected"
+        },
+        "base_signature_size": 110,
+        "base_triples_the_proposal_drops": 0,
+        "conservative_under_rule_table": false,
+        "conservativity_verdict": "not_conservative_under_rule_table",
+        "dropped_examples": [],
+        "engine_soundness_gate_skipped": null,
+        "engine_soundness_violations": [],
+        "exit_code": 1,
+        "extended_certificate": {
+          "asserted": 432,
+          "checker_exit": 1,
+          "checker_report": null,
+          "derivations": 176,
+          "iteration_cap": 64,
+          "iterations": 4,
+          "reached_fixpoint": true,
+          "skipped": "the verified checker REJECTED this certificate, so nothing in this report is checked: uncaught exception: failed to locate application",
+          "theorem": null,
+          "verdict": "rejected"
+        },
+        "finding_not_an_error": "a non-conservative extension is a FINDING, not a failure. Adding axioms that change what the ontology says about existing terms is often exactly the intended change; the point of reporting it is that it should be intended rather than discovered later. Each row names the rule that produced it and the premises the base did not have, so the decision can be made on the derivation rather than on the verdict word.",
+        "format": "oo-conservativity/1",
+        "headline": "not_conservative_under_rule_table: 2 new consequence(s) over the 110 name(s) the base already used, out of 2 new consequence(s) in total, under the owl-rl rule table. Extended certificate: rejected. this is conservativity WITH RESPECT TO THE RULE TABLE named in rule_table, and nothing else. It is computed as closure(base \u222a extension) minus closure(base) under that table, restricted to triples every name of which the base already used. It is NOT deductive conservativity in a description logic (ExpTime-complete for EL, 2ExpTime-complete for ALC, and UNDECIDABLE for ALCQIO) and it is NOT model conservativity (undecidable already for EL). The asymmetry is the point: a new consequence reported here IS a real change to what this engine derives over the old names, while finding none establishes only that this rule table derives nothing new, and never that the extension is conservative in any logic.",
+        "is_an_extension": true,
+        "mode": "replacement",
+        "new_consequences_over_old_signature": [
+          {
+            "over_old_signature": true,
+            "premises_the_base_lacked": [
+              [
+                "<https://example.org/incident#ServicePauseAction>",
+                "<http://www.w3.org/2000/01/rdf-schema#subClassOf>",
+                "<https://example.org/incident#EndpointIsolationAction>"
+              ]
+            ],
+            "rule": "rdfs9",
+            "theorem": null,
+            "triple": [
+              "<https://example.org/demo/PausePayroll>",
+              "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>",
+              "<https://example.org/incident#EndpointIsolationAction>"
+            ],
+            "warrant": "engine_opinion",
+            "warrant_word": "engine_opinion"
+          },
+          {
+            "over_old_signature": true,
+            "premises_the_base_lacked": [],
+            "rule": null,
+            "theorem": null,
+            "triple": [
+              "<https://example.org/incident#ServicePauseAction>",
+              "<http://www.w3.org/2000/01/rdf-schema#subClassOf>",
+              "<https://example.org/incident#EndpointIsolationAction>"
+            ],
+            "warrant": "asserted_in_source",
+            "warrant_word": "asserted_in_source"
+          }
+        ],
+        "new_consequences_over_old_signature_total": 2,
+        "new_consequences_total": 2,
+        "not_compared_blank_node_bearing": 0,
+        "not_examined": 0,
+        "ran": true,
+        "rule_table": "owl-rl",
+        "seconds": 0.030168936,
+        "signature_added": [],
+        "signature_added_total": 0,
+        "what_this_is_not": "this is conservativity WITH RESPECT TO THE RULE TABLE named in rule_table, and nothing else. It is computed as closure(base \u222a extension) minus closure(base) under that table, restricted to triples every name of which the base already used. It is NOT deductive conservativity in a description logic (ExpTime-complete for EL, 2ExpTime-complete for ALC, and UNDECIDABLE for ALCQIO) and it is NOT model conservativity (undecidable already for EL). The asymmetry is the point: a new consequence reported here IS a real change to what this engine derives over the old names, while finding none establishes only that this rule table derives nothing new, and never that the extension is conservative in any logic."
+      },
+      "locked_violations": [],
+      "plan_id": "plan-18e252c3ad56f602",
+      "removed_classes": [],
+      "removed_individuals": [],
+      "removed_properties": [],
+      "risk_score": "low",
+      "triple_delta": {
+        "deletions": 0,
+        "insertions": 1,
+        "strategy": "delta"
+      }
+    },
+    "independent_certificate_check": {
+      "checked": false,
+      "exit_code": 1,
+      "report": {
+        "output": "",
+        "stderr": "uncaught exception: failed to locate application"
+      }
+    }
+  }
+}

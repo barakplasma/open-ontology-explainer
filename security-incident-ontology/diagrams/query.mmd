@@ -1,0 +1,10 @@
+sequenceDiagram
+    autonumber
+    participant source as Source message
+    participant extractor as SOC agent
+    participant oo as Open Ontologies
+    participant consumer as IT agent
+    source->>extractor: Supply source text
+    extractor->>oo: Propose typed RDF
+    consumer->>oo: SELECT the relationship
+    oo-->>consumer: Return matched values

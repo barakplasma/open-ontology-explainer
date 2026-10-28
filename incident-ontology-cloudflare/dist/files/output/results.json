@@ -1,0 +1,646 @@
+{
+  "load": {
+    "ok": true,
+    "path": "/workspace/scratch/487ec5fbe317/security-incident-ontology/incident.ttl",
+    "triples_loaded": 431
+  },
+  "before_reasoning": {
+    "result": false
+  },
+  "public_before_reasoning": {
+    "result": false
+  },
+  "reasoning": {
+    "certificate": {
+      "asserted": 431,
+      "asserted_sha256": "2cfb69c91bd5cb5d5493faa20a83b5c52971fb60a7d8177651167da14f7ce963",
+      "asserted_sha256_means": "the digest of asserted.tsv, written beside it as asserted.sha256. A holder of a store recomputes it with `certificate-check <dir>` and learns whether this certificate is about that store (issue #158). It binds the certificate to a selection of BYTES, not to a state of the world",
+      "by_rule": {
+        "rdfs11": 25,
+        "rdfs2": 2,
+        "rdfs3": 11,
+        "rdfs5": 1,
+        "rdfs7": 10,
+        "rdfs9": 67
+      },
+      "check_with": "cd lean && lake exe oo-cert <dir>/asserted.tsv <dir>/derivations.tsv",
+      "derivations": 116,
+      "dir": "/workspace/scratch/487ec5fbe317/security-incident-ontology/output/certificate",
+      "format": "oo-cert/1",
+      "graphs_excluded": [
+        "https://open-ontologies.org/graph/inferred"
+      ],
+      "graphs_read": [
+        "<default>"
+      ],
+      "scope": {
+        "complete": true,
+        "default_graph": true,
+        "note": "every graph in the store, the default graph included. On a store that keeps several versions of an entity in several named graphs this union is a state that held at no instant.",
+        "selector": "whole-store",
+        "semantics_version": "temporal/2"
+      },
+      "scope_file": "/workspace/scratch/487ec5fbe317/security-incident-ontology/output/certificate/scope.tsv",
+      "scope_means": "oo-cert verifies that every derivation follows from the triples in asserted.tsv. It does not and cannot check that asserted.tsv is the graph you meant to reason over. scope.tsv records which graphs were read; a reader who cares whether this answer is about a state that existed has to read it."
+    },
+    "final_triples": 547,
+    "fixpoint_reached": true,
+    "inferred_count": 116,
+    "initial_triples": 431,
+    "iterations": 4,
+    "profile_used": "rdfs",
+    "sample_inferences": [
+      "<https://example.org/demo/Lee> a <https://schema.org/Thing>",
+      "<https://example.org/demo/Payroll> a <https://schema.org/Intangible>",
+      "<https://example.org/demo/PausePayroll> a <https://example.org/incident#ContainmentAction>",
+      "<https://example.org/demo/Payroll> a <https://schema.org/Thing>",
+      "<https://example.org/demo/ITAssignment> a <https://schema.org/Role>",
+      "<https://example.org/demo/Jordan> a <https://example.org/incident#Actor>",
+      "<https://example.org/demo/Jordan> a <https://schema.org/Thing>",
+      "<https://example.org/demo/SOCAssignment> a <https://schema.org/Thing>",
+      "<https://example.org/demo/CommsAssignment> a <https://schema.org/Thing>",
+      "<https://example.org/demo/CEOAssignment> a <https://schema.org/OrganizationRole>"
+    ],
+    "scope": {
+      "complete": true,
+      "default_graph": true,
+      "note": "every graph in the store, the default graph included. On a store that keeps several versions of an entity in several named graphs this union is a state that held at no instant.",
+      "selector": "whole-store",
+      "semantics_version": "temporal/2"
+    }
+  },
+  "valid_shapes": {
+    "conforms": true,
+    "focus_nodes": 27,
+    "focus_nodes_by_target": [
+      {
+        "focus_nodes": 1,
+        "shape": "https://example.org/demo/ApprovalShape",
+        "target": "https://example.org/incident#Approval",
+        "target_form": "class"
+      },
+      {
+        "focus_nodes": 2,
+        "shape": "https://example.org/demo/ActionShape",
+        "target": "https://example.org/incident#ResponseAction",
+        "target_form": "class"
+      },
+      {
+        "focus_nodes": 2,
+        "shape": "https://example.org/demo/PolicyShape",
+        "target": "https://example.org/incident#AuthorizationPolicy",
+        "target_form": "class"
+      },
+      {
+        "focus_nodes": 1,
+        "shape": "https://example.org/demo/FindingShape",
+        "target": "https://example.org/incident#Finding",
+        "target_form": "class"
+      },
+      {
+        "focus_nodes": 2,
+        "shape": "https://example.org/demo/EvidenceShape",
+        "target": "https://example.org/incident#Evidence",
+        "target_form": "class"
+      },
+      {
+        "focus_nodes": 1,
+        "shape": "https://example.org/demo/IncidentShape",
+        "target": "https://example.org/incident#SecurityIncident",
+        "target_form": "class"
+      },
+      {
+        "focus_nodes": 9,
+        "shape": "https://example.org/demo/AssignmentShape",
+        "target": "https://example.org/incident#IncidentAssignment",
+        "target_form": "class"
+      },
+      {
+        "focus_nodes": 9,
+        "shape": "https://example.org/demo/PersonNameShape",
+        "target": "https://schema.org/Person",
+        "target_form": "class"
+      }
+    ],
+    "scope": {
+      "complete": true,
+      "default_graph": true,
+      "note": "every graph in the store, the default graph included. On a store that keeps several versions of an entity in several named graphs this union is a state that held at no instant.",
+      "selector": "whole-store",
+      "semantics_version": "temporal/2"
+    },
+    "unmatched_shapes": [],
+    "violation_count": 0,
+    "violations": []
+  },
+  "01-roster": {
+    "results": [
+      {
+        "person": "\"Jordan\"",
+        "responsibility": "\"Makes major business tradeoffs within organizational policy.\"",
+        "role": "\"CEO\""
+      },
+      {
+        "person": "\"Morgan\"",
+        "responsibility": "\"Makes security-risk decisions within organizational policy.\"",
+        "role": "\"CISO\""
+      },
+      {
+        "person": "\"Robin\"",
+        "responsibility": "\"Prepares audience-appropriate updates from approved findings.\"",
+        "role": "\"Communications lead\""
+      },
+      {
+        "person": "\"Alex\"",
+        "responsibility": "\"Reports symptoms and follows response instructions.\"",
+        "role": "\"End user\""
+      },
+      {
+        "person": "\"Eli\"",
+        "responsibility": "\"Implements containment and recovery through authorized tools.\"",
+        "role": "\"IT responder\""
+      },
+      {
+        "person": "\"Taylor\"",
+        "responsibility": "\"Coordinates the incident, tasks and updates.\"",
+        "role": "\"Incident commander\""
+      },
+      {
+        "person": "\"Lee\"",
+        "responsibility": "\"Assesses legal obligations and notification requirements.\"",
+        "role": "\"Legal counsel\""
+      },
+      {
+        "person": "\"Sam\"",
+        "responsibility": "\"Explains service impact and helps validate recovery.\"",
+        "role": "\"Payroll owner\""
+      },
+      {
+        "person": "\"Dana\"",
+        "responsibility": "\"Triages alerts, preserves evidence, proposes containment.\"",
+        "role": "\"SOC analyst\""
+      }
+    ],
+    "variables": [
+      "person",
+      "role",
+      "responsibility"
+    ]
+  },
+  "02-impact": {
+    "results": [
+      {
+        "asset": "\"Laptop-42\"",
+        "serviceAtRisk": "\"Payroll\"",
+        "user": "\"Alex\""
+      }
+    ],
+    "variables": [
+      "asset",
+      "user",
+      "serviceAtRisk"
+    ]
+  },
+  "03-action-decisions": {
+    "results": [
+      {
+        "action": "\"Isolate Laptop-42\"",
+        "approver": "\"Morgan\"",
+        "approverRole": "\"CISO\"",
+        "decisionState": "\"Matching grant recorded\"",
+        "executor": "\"Eli\""
+      },
+      {
+        "action": "\"Pause Payroll\"",
+        "approver": "\"Jordan\"",
+        "approverRole": "\"CEO\"",
+        "decisionState": "\"No matching grant recorded\"",
+        "executor": "\"Eli\""
+      }
+    ],
+    "variables": [
+      "action",
+      "executor",
+      "approverRole",
+      "approver",
+      "decisionState"
+    ]
+  },
+  "04-findings": {
+    "results": [
+      {
+        "analyst": "\"Dana\"",
+        "evidence": "\"EDR reported unusual outbound traffic\"",
+        "finding": "\"Possible data exfiltration from Laptop-42\"",
+        "observedAt": "\"2026-10-27T06:02:00Z\"^^<http://www.w3.org/2001/XMLSchema#dateTime>",
+        "source": "\"synthetic-edr-007\"",
+        "status": "\"Suspected\""
+      }
+    ],
+    "variables": [
+      "finding",
+      "status",
+      "evidence",
+      "source",
+      "observedAt",
+      "analyst"
+    ]
+  },
+  "05-inference": {
+    "result": true
+  },
+  "06-public-people": {
+    "results": [
+      {
+        "name": "\"Alex\""
+      },
+      {
+        "name": "\"Dana\""
+      },
+      {
+        "name": "\"Eli\""
+      },
+      {
+        "name": "\"Jordan\""
+      },
+      {
+        "name": "\"Lee\""
+      },
+      {
+        "name": "\"Morgan\""
+      },
+      {
+        "name": "\"Robin\""
+      },
+      {
+        "name": "\"Sam\""
+      },
+      {
+        "name": "\"Taylor\""
+      }
+    ],
+    "variables": [
+      "name"
+    ]
+  },
+  "07-public-roles": {
+    "results": [
+      {
+        "name": "\"Jordan\"",
+        "role": "\"CEO\""
+      },
+      {
+        "name": "\"Morgan\"",
+        "role": "\"CISO\""
+      },
+      {
+        "name": "\"Robin\"",
+        "role": "\"Communications lead\""
+      },
+      {
+        "name": "\"Alex\"",
+        "role": "\"End user\""
+      },
+      {
+        "name": "\"Eli\"",
+        "role": "\"IT responder\""
+      },
+      {
+        "name": "\"Taylor\"",
+        "role": "\"Incident commander\""
+      },
+      {
+        "name": "\"Lee\"",
+        "role": "\"Legal counsel\""
+      },
+      {
+        "name": "\"Sam\"",
+        "role": "\"Payroll owner\""
+      },
+      {
+        "name": "\"Dana\"",
+        "role": "\"SOC analyst\""
+      }
+    ],
+    "variables": [
+      "name",
+      "role"
+    ]
+  },
+  "08-public-provenance": {
+    "results": [
+      {
+        "author": "\"Dana\"",
+        "source": "\"synthetic-edr-007\"",
+        "status": "\"Suspected\""
+      }
+    ],
+    "variables": [
+      "status",
+      "source",
+      "author"
+    ]
+  },
+  "09-public-inference": {
+    "result": true
+  },
+  "invalid_shapes": {
+    "conforms": false,
+    "focus_nodes": 28,
+    "focus_nodes_by_target": [
+      {
+        "focus_nodes": 2,
+        "shape": "https://example.org/demo/ApprovalShape",
+        "target": "https://example.org/incident#Approval",
+        "target_form": "class"
+      },
+      {
+        "focus_nodes": 2,
+        "shape": "https://example.org/demo/ActionShape",
+        "target": "https://example.org/incident#ResponseAction",
+        "target_form": "class"
+      },
+      {
+        "focus_nodes": 2,
+        "shape": "https://example.org/demo/PolicyShape",
+        "target": "https://example.org/incident#AuthorizationPolicy",
+        "target_form": "class"
+      },
+      {
+        "focus_nodes": 1,
+        "shape": "https://example.org/demo/FindingShape",
+        "target": "https://example.org/incident#Finding",
+        "target_form": "class"
+      },
+      {
+        "focus_nodes": 2,
+        "shape": "https://example.org/demo/EvidenceShape",
+        "target": "https://example.org/incident#Evidence",
+        "target_form": "class"
+      },
+      {
+        "focus_nodes": 1,
+        "shape": "https://example.org/demo/IncidentShape",
+        "target": "https://example.org/incident#SecurityIncident",
+        "target_form": "class"
+      },
+      {
+        "focus_nodes": 9,
+        "shape": "https://example.org/demo/AssignmentShape",
+        "target": "https://example.org/incident#IncidentAssignment",
+        "target_form": "class"
+      },
+      {
+        "focus_nodes": 9,
+        "shape": "https://example.org/demo/PersonNameShape",
+        "target": "https://schema.org/Person",
+        "target_form": "class"
+      }
+    ],
+    "scope": {
+      "complete": true,
+      "default_graph": true,
+      "note": "every graph in the store, the default graph included. On a store that keeps several versions of an entity in several named graphs this union is a state that held at no instant.",
+      "selector": "whole-store",
+      "semantics_version": "temporal/2"
+    },
+    "unmatched_shapes": [],
+    "violation_count": 1,
+    "violations": [
+      {
+        "constraint": "sparql",
+        "focus_node": "https://example.org/demo/WrongRoleGrant",
+        "message": "Approval must come from the policy's required role in the same incident.",
+        "node_shape": "https://example.org/demo/ApprovalShape",
+        "severity": "Violation",
+        "source_constraint_component": "http://www.w3.org/ns/shacl#SPARQLConstraintComponent",
+        "source_shape": "https://example.org/demo/ApprovalShape"
+      }
+    ]
+  },
+  "invalid_shapes_exit_code": 1,
+  "vocab_valid": {
+    "conforms": true,
+    "hallucinated_terms": [],
+    "checked_namespaces": [
+      "http://www.w3.org/ns/prov#",
+      "https://example.org/incident#",
+      "https://schema.org/"
+    ],
+    "predicates_checked": 37,
+    "types_checked": 13,
+    "ontology_terms": 68
+  },
+  "vocab_invented": {
+    "conforms": false,
+    "hallucinated_terms": [
+      "https://example.org/incident#jobTitleLabel"
+    ],
+    "checked_namespaces": [
+      "http://www.w3.org/ns/prov#",
+      "https://example.org/incident#",
+      "https://schema.org/"
+    ],
+    "predicates_checked": 1,
+    "types_checked": 0,
+    "ontology_terms": 68
+  },
+  "vocab_name_value": {
+    "conforms": true,
+    "hallucinated_terms": [],
+    "checked_namespaces": [
+      "http://www.w3.org/ns/prov#",
+      "https://example.org/incident#",
+      "https://schema.org/"
+    ],
+    "predicates_checked": 2,
+    "types_checked": 1,
+    "ontology_terms": 68
+  },
+  "invalid_name_shapes": {
+    "conforms": false,
+    "focus_nodes": 27,
+    "focus_nodes_by_target": [
+      {
+        "focus_nodes": 1,
+        "shape": "https://example.org/demo/ApprovalShape",
+        "target": "https://example.org/incident#Approval",
+        "target_form": "class"
+      },
+      {
+        "focus_nodes": 2,
+        "shape": "https://example.org/demo/ActionShape",
+        "target": "https://example.org/incident#ResponseAction",
+        "target_form": "class"
+      },
+      {
+        "focus_nodes": 2,
+        "shape": "https://example.org/demo/PolicyShape",
+        "target": "https://example.org/incident#AuthorizationPolicy",
+        "target_form": "class"
+      },
+      {
+        "focus_nodes": 1,
+        "shape": "https://example.org/demo/FindingShape",
+        "target": "https://example.org/incident#Finding",
+        "target_form": "class"
+      },
+      {
+        "focus_nodes": 2,
+        "shape": "https://example.org/demo/EvidenceShape",
+        "target": "https://example.org/incident#Evidence",
+        "target_form": "class"
+      },
+      {
+        "focus_nodes": 1,
+        "shape": "https://example.org/demo/IncidentShape",
+        "target": "https://example.org/incident#SecurityIncident",
+        "target_form": "class"
+      },
+      {
+        "focus_nodes": 9,
+        "shape": "https://example.org/demo/AssignmentShape",
+        "target": "https://example.org/incident#IncidentAssignment",
+        "target_form": "class"
+      },
+      {
+        "focus_nodes": 9,
+        "shape": "https://example.org/demo/PersonNameShape",
+        "target": "https://schema.org/Person",
+        "target_form": "class"
+      }
+    ],
+    "scope": {
+      "complete": true,
+      "default_graph": true,
+      "note": "every graph in the store, the default graph included. On a store that keeps several versions of an entity in several named graphs this union is a state that held at no instant.",
+      "selector": "whole-store",
+      "semantics_version": "temporal/2"
+    },
+    "unmatched_shapes": [],
+    "violation_count": 1,
+    "violations": [
+      {
+        "constraint": "datatype",
+        "focus_node": "https://example.org/demo/Dana",
+        "message": "Value does not have datatype <http://www.w3.org/2001/XMLSchema#string>",
+        "node_shape": "https://example.org/demo/PersonNameShape",
+        "path": "https://schema.org/name",
+        "result_path": "https://schema.org/name",
+        "severity": "Violation",
+        "source_constraint_component": "http://www.w3.org/ns/shacl#DatatypeConstraintComponent",
+        "source_shape": "_:add77cddfe541967606434e90b2b276"
+      }
+    ]
+  },
+  "change_plan": {
+    "added_classes": [],
+    "added_individuals": [],
+    "added_properties": [],
+    "blast_radius": {
+      "triples_affected": 0
+    },
+    "conservativity": {
+      "base_certificate": {
+        "asserted": 431,
+        "checker_exit": 1,
+        "checker_report": null,
+        "derivations": 175,
+        "iteration_cap": 64,
+        "iterations": 4,
+        "reached_fixpoint": true,
+        "skipped": "the verified checker REJECTED this certificate, so nothing in this report is checked: uncaught exception: failed to locate application",
+        "theorem": null,
+        "verdict": "rejected"
+      },
+      "base_signature_size": 110,
+      "base_triples_the_proposal_drops": 0,
+      "conservative_under_rule_table": false,
+      "conservativity_verdict": "not_conservative_under_rule_table",
+      "dropped_examples": [],
+      "engine_soundness_gate_skipped": null,
+      "engine_soundness_violations": [],
+      "exit_code": 1,
+      "extended_certificate": {
+        "asserted": 432,
+        "checker_exit": 1,
+        "checker_report": null,
+        "derivations": 176,
+        "iteration_cap": 64,
+        "iterations": 4,
+        "reached_fixpoint": true,
+        "skipped": "the verified checker REJECTED this certificate, so nothing in this report is checked: uncaught exception: failed to locate application",
+        "theorem": null,
+        "verdict": "rejected"
+      },
+      "finding_not_an_error": "a non-conservative extension is a FINDING, not a failure. Adding axioms that change what the ontology says about existing terms is often exactly the intended change; the point of reporting it is that it should be intended rather than discovered later. Each row names the rule that produced it and the premises the base did not have, so the decision can be made on the derivation rather than on the verdict word.",
+      "format": "oo-conservativity/1",
+      "headline": "not_conservative_under_rule_table: 2 new consequence(s) over the 110 name(s) the base already used, out of 2 new consequence(s) in total, under the owl-rl rule table. Extended certificate: rejected. this is conservativity WITH RESPECT TO THE RULE TABLE named in rule_table, and nothing else. It is computed as closure(base \u222a extension) minus closure(base) under that table, restricted to triples every name of which the base already used. It is NOT deductive conservativity in a description logic (ExpTime-complete for EL, 2ExpTime-complete for ALC, and UNDECIDABLE for ALCQIO) and it is NOT model conservativity (undecidable already for EL). The asymmetry is the point: a new consequence reported here IS a real change to what this engine derives over the old names, while finding none establishes only that this rule table derives nothing new, and never that the extension is conservative in any logic.",
+      "is_an_extension": true,
+      "mode": "replacement",
+      "new_consequences_over_old_signature": [
+        {
+          "over_old_signature": true,
+          "premises_the_base_lacked": [
+            [
+              "<https://example.org/incident#ServicePauseAction>",
+              "<http://www.w3.org/2000/01/rdf-schema#subClassOf>",
+              "<https://example.org/incident#EndpointIsolationAction>"
+            ]
+          ],
+          "rule": "rdfs9",
+          "theorem": null,
+          "triple": [
+            "<https://example.org/demo/PausePayroll>",
+            "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>",
+            "<https://example.org/incident#EndpointIsolationAction>"
+          ],
+          "warrant": "engine_opinion",
+          "warrant_word": "engine_opinion"
+        },
+        {
+          "over_old_signature": true,
+          "premises_the_base_lacked": [],
+          "rule": null,
+          "theorem": null,
+          "triple": [
+            "<https://example.org/incident#ServicePauseAction>",
+            "<http://www.w3.org/2000/01/rdf-schema#subClassOf>",
+            "<https://example.org/incident#EndpointIsolationAction>"
+          ],
+          "warrant": "asserted_in_source",
+          "warrant_word": "asserted_in_source"
+        }
+      ],
+      "new_consequences_over_old_signature_total": 2,
+      "new_consequences_total": 2,
+      "not_compared_blank_node_bearing": 0,
+      "not_examined": 0,
+      "ran": true,
+      "rule_table": "owl-rl",
+      "seconds": 0.030168936,
+      "signature_added": [],
+      "signature_added_total": 0,
+      "what_this_is_not": "this is conservativity WITH RESPECT TO THE RULE TABLE named in rule_table, and nothing else. It is computed as closure(base \u222a extension) minus closure(base) under that table, restricted to triples every name of which the base already used. It is NOT deductive conservativity in a description logic (ExpTime-complete for EL, 2ExpTime-complete for ALC, and UNDECIDABLE for ALCQIO) and it is NOT model conservativity (undecidable already for EL). The asymmetry is the point: a new consequence reported here IS a real change to what this engine derives over the old names, while finding none establishes only that this rule table derives nothing new, and never that the extension is conservative in any logic."
+    },
+    "locked_violations": [],
+    "plan_id": "plan-18e252c3ad56f602",
+    "removed_classes": [],
+    "removed_individuals": [],
+    "removed_properties": [],
+    "risk_score": "low",
+    "triple_delta": {
+      "deletions": 0,
+      "insertions": 1,
+      "strategy": "delta"
+    }
+  },
+  "independent_certificate_check": {
+    "checked": false,
+    "exit_code": 1,
+    "report": {
+      "output": "",
+      "stderr": "uncaught exception: failed to locate application"
+    }
+  }
+}

@@ -1,0 +1,4 @@
+PREFIX schema: <https://schema.org/>
+SELECT ?name WHERE {
+  ?person a schema:Person ; schema:name ?name .
+} ORDER BY ?name

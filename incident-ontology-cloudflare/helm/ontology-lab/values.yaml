@@ -1,0 +1,27 @@
+# image.repository is the registry path for the image you build and push.
+image:
+  repository: ""
+  # image.tag identifies the image version.
+  tag: "1.0.0"
+  # image.pullPolicy controls Kubernetes image pulls.
+  pullPolicy: IfNotPresent
+# replicaCount sets the number of web server pods.
+replicaCount: 1
+# service.port is the internal service port.
+service:
+  port: 80
+# ingress.enabled requires a separately installed ingress controller.
+ingress:
+  enabled: false
+  # ingress.className selects the ingress controller.
+  className: ""
+  # ingress.host is the DNS host; required when ingress is enabled.
+  host: ""
+  # ingress.tlsSecretName refers to an existing TLS secret; empty disables TLS.
+  tlsSecretName: ""
+  # ingress.annotations adds controller-specific settings.
+  annotations: {}
+# resources configures pod resource requests and limits.
+resources:
+  requests: {cpu: 20m, memory: 32Mi}
+  limits: {cpu: 250m, memory: 128Mi}

@@ -1,0 +1,6 @@
+apiVersion: v2
+name: open-ontologies
+description: Single-instance Open Ontologies HTTP MCP server
+version: 0.1.0
+appVersion: "2.1.0"
+type: application

@@ -1,0 +1,248 @@
+@prefix ex: <https://example.org/demo/> .
+@prefix ir: <https://example.org/incident#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:CEOAssignment a ir:IncidentAssignment ;
+    ir:assignedActor ex:Jordan ;
+    ir:assignedRole ex:CEO ;
+    ir:forIncident ex:INC001 ;
+    schema:member ex:Jordan ;
+    schema:roleName "CEO" .
+
+ex:CommsAssignment a ir:IncidentAssignment ;
+    ir:assignedActor ex:Robin ;
+    ir:assignedRole ex:Communications ;
+    ir:forIncident ex:INC001 ;
+    schema:member ex:Robin ;
+    schema:roleName "Communications lead" .
+
+ex:IsolationGrant a ir:Approval ;
+    ir:approvedBy ex:CISOAssignment ;
+    ir:decision "Granted" ;
+    ir:forAction ex:IsolateLaptop ;
+    ir:recordedAt "2026-10-27T06:05:00+00:00"^^xsd:dateTime .
+
+ex:LegalAssignment a ir:IncidentAssignment ;
+    ir:assignedActor ex:Lee ;
+    ir:assignedRole ex:Legal ;
+    ir:forIncident ex:INC001 ;
+    schema:member ex:Lee ;
+    schema:roleName "Legal counsel" .
+
+ex:OwnerAssignment a ir:IncidentAssignment ;
+    ir:assignedActor ex:Sam ;
+    ir:assignedRole ex:BusinessOwner ;
+    ir:forIncident ex:INC001 ;
+    schema:member ex:Sam ;
+    schema:roleName "Payroll owner" .
+
+ex:PausePayroll a ir:ServicePauseAction ;
+    rdfs:label "Pause Payroll" ;
+    ir:executor ex:ITAssignment ;
+    ir:forIncident ex:INC001 ;
+    ir:governedBy ex:PayrollPausePolicy ;
+    ir:proposedBy ex:CommandAssignment ;
+    ir:target ex:Payroll ;
+    schema:actionStatus schema:PotentialActionStatus ;
+    schema:agent ex:Eli ;
+    schema:name "Pause Payroll" .
+
+ex:PossibleExfiltration a ir:Finding ;
+    prov:wasAttributedTo ex:Dana ;
+    ir:assertedBy ex:SOCAssignment ;
+    ir:findingStatus "Suspected" ;
+    ir:forIncident ex:INC001 ;
+    ir:statement "Possible data exfiltration from Laptop-42" ;
+    ir:supportedBy ex:EDRAlert .
+
+ex:UserReport a ir:Evidence ;
+    rdfs:label "User reported opening a suspicious attachment" ;
+    prov:wasAttributedTo ex:Alex ;
+    ir:collectedBy ex:UserAssignment ;
+    ir:forIncident ex:INC001 ;
+    ir:observedAt "2026-10-27T06:00:00+00:00"^^xsd:dateTime ;
+    ir:sourceId "synthetic-helpdesk-001" ;
+    schema:name "User reported opening a suspicious attachment" .
+
+ex:BusinessOwner a ir:Role ;
+    rdfs:label "Payroll owner" ;
+    rdfs:comment "Explains service impact and helps validate recovery." ;
+    schema:name "Payroll owner" .
+
+ex:CISOAssignment a ir:IncidentAssignment ;
+    ir:assignedActor ex:Morgan ;
+    ir:assignedRole ex:CISO ;
+    ir:forIncident ex:INC001 ;
+    schema:member ex:Morgan ;
+    schema:roleName "CISO" .
+
+ex:CommandAssignment a ir:IncidentAssignment ;
+    ir:assignedActor ex:Taylor ;
+    ir:assignedRole ex:IncidentCommander ;
+    ir:forIncident ex:INC001 ;
+    schema:member ex:Taylor ;
+    schema:roleName "Incident commander" .
+
+ex:Communications a ir:Role ;
+    rdfs:label "Communications lead" ;
+    rdfs:comment "Prepares audience-appropriate updates from approved findings." ;
+    schema:name "Communications lead" .
+
+ex:EDRAlert a ir:Evidence ;
+    rdfs:label "EDR reported unusual outbound traffic" ;
+    prov:wasAttributedTo ex:Dana ;
+    ir:collectedBy ex:SOCAssignment ;
+    ir:forIncident ex:INC001 ;
+    ir:observedAt "2026-10-27T06:02:00+00:00"^^xsd:dateTime ;
+    ir:sourceId "synthetic-edr-007" ;
+    schema:name "EDR reported unusual outbound traffic" .
+
+ex:EndUser a ir:Role ;
+    rdfs:label "End user" ;
+    rdfs:comment "Reports symptoms and follows response instructions." ;
+    schema:name "End user" .
+
+ex:IT a schema:Organization ;
+    rdfs:label "IT operations" ;
+    schema:member ex:ITAssignment ;
+    schema:name "IT operations" .
+
+ex:IncidentCommander a ir:Role ;
+    rdfs:label "Incident commander" ;
+    rdfs:comment "Coordinates the incident, tasks and updates." ;
+    schema:name "Incident commander" .
+
+ex:IsolateLaptop a ir:EndpointIsolationAction ;
+    rdfs:label "Isolate Laptop-42" ;
+    ir:executor ex:ITAssignment ;
+    ir:forIncident ex:INC001 ;
+    ir:governedBy ex:IsolationPolicy ;
+    ir:proposedBy ex:SOCAssignment ;
+    ir:target ex:Laptop42 ;
+    schema:actionStatus schema:PotentialActionStatus ;
+    schema:agent ex:Eli ;
+    schema:name "Isolate Laptop-42" .
+
+ex:IsolationPolicy a ir:AuthorizationPolicy ;
+    rdfs:label "Example endpoint isolation policy" ;
+    ir:requiredApproverRole ex:CISO ;
+    ir:requiredExecutorRole ex:ITResponder ;
+    schema:name "Example endpoint isolation policy" .
+
+ex:Legal a ir:Role ;
+    rdfs:label "Legal counsel" ;
+    rdfs:comment "Assesses legal obligations and notification requirements." ;
+    schema:name "Legal counsel" .
+
+ex:PayrollPausePolicy a ir:AuthorizationPolicy ;
+    rdfs:label "Example major service interruption policy" ;
+    ir:requiredApproverRole ex:CEO ;
+    ir:requiredExecutorRole ex:ITResponder ;
+    schema:name "Example major service interruption policy" .
+
+ex:SOC a schema:Organization ;
+    rdfs:label "Security Operations Center" ;
+    schema:member ex:SOCAssignment ;
+    schema:name "Security Operations Center" .
+
+ex:SOCAnalyst a ir:Role ;
+    rdfs:label "SOC analyst" ;
+    rdfs:comment "Triages alerts, preserves evidence, proposes containment." ;
+    schema:name "SOC analyst" .
+
+ex:UserAssignment a ir:IncidentAssignment ;
+    ir:assignedActor ex:Alex ;
+    ir:assignedRole ex:EndUser ;
+    ir:forIncident ex:INC001 ;
+    schema:member ex:Alex ;
+    schema:roleName "End user" .
+
+ex:CEO a ir:Role ;
+    rdfs:label "CEO" ;
+    rdfs:comment "Makes major business tradeoffs within organizational policy." ;
+    schema:name "CEO" .
+
+ex:CISO a ir:Role ;
+    rdfs:label "CISO" ;
+    rdfs:comment "Makes security-risk decisions within organizational policy." ;
+    schema:name "CISO" .
+
+ex:Jordan a schema:Person ;
+    rdfs:label "Jordan" ;
+    schema:name "Jordan" .
+
+ex:Laptop42 a ir:Workstation ;
+    rdfs:label "Laptop-42" ;
+    ir:usedBy ex:Alex ;
+    ir:usedFor ex:Payroll ;
+    schema:name "Laptop-42" .
+
+ex:Lee a schema:Person ;
+    rdfs:label "Lee" ;
+    schema:name "Lee" .
+
+ex:Morgan a schema:Person ;
+    rdfs:label "Morgan" ;
+    schema:name "Morgan" .
+
+ex:Robin a schema:Person ;
+    rdfs:label "Robin" ;
+    schema:name "Robin" .
+
+ex:Sam a schema:Person ;
+    rdfs:label "Sam" ;
+    schema:name "Sam" .
+
+ex:Taylor a schema:Person ;
+    rdfs:label "Taylor" ;
+    schema:name "Taylor" .
+
+ex:ITAssignment a ir:IncidentAssignment ;
+    ir:assignedActor ex:Eli ;
+    ir:assignedRole ex:ITResponder ;
+    ir:forIncident ex:INC001 ;
+    schema:member ex:Eli ;
+    schema:roleName "IT responder" .
+
+ex:ITResponder a ir:Role ;
+    rdfs:label "IT responder" ;
+    rdfs:comment "Implements containment and recovery through authorized tools." ;
+    schema:name "IT responder" .
+
+ex:Payroll a ir:BusinessService ;
+    rdfs:label "Payroll" ;
+    schema:name "Payroll" .
+
+ex:Alex a schema:Person ;
+    rdfs:label "Alex" ;
+    schema:name "Alex" .
+
+ex:Dana a schema:Person ;
+    rdfs:label "Dana" ;
+    ir:memberOf ex:SOC ;
+    schema:name "Dana" .
+
+ex:Eli a schema:Person ;
+    rdfs:label "Eli" ;
+    ir:memberOf ex:IT ;
+    schema:name "Eli" .
+
+ex:SOCAssignment a ir:IncidentAssignment ;
+    ir:assignedActor ex:Dana ;
+    ir:assignedRole ex:SOCAnalyst ;
+    ir:forIncident ex:INC001 ;
+    schema:member ex:Dana ;
+    schema:roleName "SOC analyst" .
+
+ex:INC001 a ir:SecurityIncident ;
+    rdfs:label "INC-001: suspicious payroll workstation" ;
+    ir:affectsAsset ex:Laptop42 ;
+    ir:detectedAt "2026-10-27T06:00:00+00:00"^^xsd:dateTime ;
+    ir:severity "High" ;
+    ir:status "Investigating" ;
+    ir:threatensService ex:Payroll ;
+    schema:name "INC-001: suspicious payroll workstation" .
+

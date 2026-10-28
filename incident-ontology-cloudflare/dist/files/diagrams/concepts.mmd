@@ -1,0 +1,11 @@
+sequenceDiagram
+    autonumber
+    participant you as You
+    participant model as Your RDF model
+    participant oo as Open Ontologies
+    participant agent as AI agent
+    you->>model: Define a relationship
+    you->>model: Add particular instances
+    model->>oo: Load local RDF
+    agent->>oo: Query linked facts
+    oo-->>agent: Return structured rows

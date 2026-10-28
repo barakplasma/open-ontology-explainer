@@ -1,0 +1,8 @@
+# Append this to incident.ttl to see SHACL reject a decision from the wrong role.
+# The CEO is assigned to this incident but the isolation policy requires CISO.
+@prefix ir: <https://example.org/incident#> .
+@prefix ex: <https://example.org/demo/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+ex:WrongRoleGrant a ir:Approval ; ir:forAction ex:IsolateLaptop ;
+    ir:approvedBy ex:CEOAssignment ; ir:decision "Granted" ;
+    ir:recordedAt "2026-10-27T06:06:00Z"^^xsd:dateTime .

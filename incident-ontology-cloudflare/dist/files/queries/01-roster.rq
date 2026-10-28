@@ -1,0 +1,9 @@
+PREFIX ir: <https://example.org/incident#>
+PREFIX ex: <https://example.org/demo/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?person ?role ?responsibility WHERE {
+  ?assignment a ir:IncidentAssignment ; ir:forIncident ex:INC001 ;
+              ir:assignedActor ?actor ; ir:assignedRole ?roleNode .
+  ?actor rdfs:label ?person .
+  ?roleNode rdfs:label ?role ; rdfs:comment ?responsibility .
+} ORDER BY ?role

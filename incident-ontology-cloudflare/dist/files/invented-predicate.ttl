@@ -1,0 +1,3 @@
+@prefix ir: <https://example.org/incident#> .
+@prefix ex: <https://example.org/demo/> .
+ex:Dana ir:jobTitleLabel "SOC analyst" .

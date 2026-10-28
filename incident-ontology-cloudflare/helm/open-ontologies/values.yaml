@@ -1,0 +1,16 @@
+image:
+  repository: ghcr.io/fabio-rovai/open-ontologies
+  tag: "2.1.0"
+  pullPolicy: IfNotPresent
+# Existing secret must contain a nonempty bearer token in key token.
+auth:
+  existingSecret: ""
+service:
+  port: 8080
+persistence:
+  size: 5Gi
+  # Set storageClassName if your cluster has no default storage class.
+  storageClassName: ""
+resources:
+  requests: {cpu: 100m, memory: 256Mi}
+  limits: {cpu: "2", memory: 2Gi}

@@ -1,0 +1,87 @@
+@prefix ir:   <https://example.org/incident#> .
+@prefix ex:   <https://example.org/demo/> .
+@prefix sh:   <http://www.w3.org/ns/shacl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix schema: <https://schema.org/> .
+
+# Schema.org supplies shared meaning. This application adds a strict constraint.
+ex:PersonNameShape a sh:NodeShape ; sh:targetClass schema:Person ;
+    sh:property [ sh:path schema:name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] .
+
+ex:AssignmentShape a sh:NodeShape ; sh:targetClass ir:IncidentAssignment ;
+    sh:property [ sh:path ir:assignedActor ; sh:minCount 1 ; sh:maxCount 1 ; sh:or ( [ sh:class schema:Person ] [ sh:class schema:Organization ] ) ] ;
+    sh:property [ sh:path ir:assignedRole ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ir:Role ] ;
+    sh:property [ sh:path ir:forIncident ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ir:SecurityIncident ] .
+
+ex:IncidentShape a sh:NodeShape ; sh:targetClass ir:SecurityIncident ;
+    sh:property [ sh:path ir:severity ; sh:minCount 1 ; sh:maxCount 1 ; sh:in ( "Low" "Medium" "High" "Critical" ) ] ;
+    sh:property [ sh:path ir:status ; sh:minCount 1 ; sh:maxCount 1 ; sh:in ( "Investigating" "Contained" "Recovering" "Closed" ) ] ;
+    sh:property [ sh:path ir:detectedAt ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:dateTime ] ;
+    sh:property [ sh:path ir:affectsAsset ; sh:minCount 1 ; sh:class ir:Asset ] .
+
+ex:EvidenceShape a sh:NodeShape ; sh:targetClass ir:Evidence ;
+    sh:property [ sh:path ir:forIncident ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ir:SecurityIncident ] ;
+    sh:property [ sh:path ir:collectedBy ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ir:IncidentAssignment ] ;
+    sh:property [ sh:path ir:sourceId ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path ir:observedAt ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:dateTime ] .
+
+ex:FindingShape a sh:NodeShape ; sh:targetClass ir:Finding ;
+    sh:property [ sh:path ir:forIncident ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ir:SecurityIncident ] ;
+    sh:property [ sh:path ir:statement ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path ir:findingStatus ; sh:minCount 1 ; sh:maxCount 1 ; sh:in ( "Suspected" "Confirmed" "Refuted" ) ] ;
+    sh:property [ sh:path ir:supportedBy ; sh:minCount 1 ; sh:class ir:Evidence ] ;
+    sh:property [ sh:path ir:assertedBy ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ir:IncidentAssignment ] .
+
+ex:PolicyShape a sh:NodeShape ; sh:targetClass ir:AuthorizationPolicy ;
+    sh:property [ sh:path ir:requiredApproverRole ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ir:Role ] ;
+    sh:property [ sh:path ir:requiredExecutorRole ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ir:Role ] .
+
+ex:ActionShape a sh:NodeShape ; sh:targetClass ir:ResponseAction ;
+    sh:property [ sh:path ir:forIncident ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ir:SecurityIncident ] ;
+    sh:property [ sh:path ir:target ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ] ;
+    sh:property [ sh:path ir:proposedBy ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ir:IncidentAssignment ] ;
+    sh:property [ sh:path ir:executor ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ir:IncidentAssignment ] ;
+    sh:property [ sh:path ir:governedBy ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ir:AuthorizationPolicy ] ;
+    sh:sparql [
+        sh:message "Action proposer and executor must be assigned to the action's incident." ;
+        sh:select """
+          PREFIX ir: <https://example.org/incident#>
+          SELECT $this WHERE {
+            $this ir:forIncident ?incident .
+            { $this ir:proposedBy ?assignment } UNION { $this ir:executor ?assignment }
+            ?assignment ir:forIncident ?other .
+            FILTER (?other != ?incident)
+          }
+        """
+    ] ;
+    sh:sparql [
+        sh:message "Action executor must hold the role required by its policy." ;
+        sh:select """
+          PREFIX ir: <https://example.org/incident#>
+          SELECT $this WHERE {
+            $this ir:governedBy ?policy ; ir:executor ?executor .
+            ?policy ir:requiredExecutorRole ?requiredRole .
+            ?executor ir:assignedRole ?actualRole .
+            FILTER (?requiredRole != ?actualRole)
+          }
+        """
+    ] .
+
+ex:ApprovalShape a sh:NodeShape ; sh:targetClass ir:Approval ;
+    sh:property [ sh:path ir:forAction ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ir:ResponseAction ] ;
+    sh:property [ sh:path ir:approvedBy ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ir:IncidentAssignment ] ;
+    sh:property [ sh:path ir:decision ; sh:minCount 1 ; sh:maxCount 1 ; sh:in ( "Granted" "Denied" ) ] ;
+    sh:property [ sh:path ir:recordedAt ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:dateTime ] ;
+    sh:sparql [
+        sh:message "Approval must come from the policy's required role in the same incident." ;
+        sh:select """
+          PREFIX ir: <https://example.org/incident#>
+          SELECT $this WHERE {
+            $this ir:forAction ?action ; ir:approvedBy ?assignment .
+            ?action ir:forIncident ?incident ; ir:governedBy ?policy .
+            ?policy ir:requiredApproverRole ?requiredRole .
+            ?assignment ir:forIncident ?assignedIncident ; ir:assignedRole ?actualRole .
+            FILTER (?incident != ?assignedIncident || ?requiredRole != ?actualRole)
+          }
+        """
+    ] .

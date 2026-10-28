@@ -1,0 +1,4 @@
+@prefix schema: <https://schema.org/> .
+@prefix ex: <https://example.org/demo/> .
+# The public predicate is declared; our SHACL shape rejects this numeric value.
+ex:Dana a schema:Person ; schema:name 42 .

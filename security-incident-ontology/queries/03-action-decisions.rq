@@ -1,0 +1,24 @@
+# A graph query for this toy policy, NOT a production authorization boundary.
+# No row with a grant means only that no matching grant is recorded here.
+PREFIX ir: <https://example.org/incident#>
+PREFIX ex: <https://example.org/demo/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?action ?executor ?approverRole ?approver ?decisionState WHERE {
+  ?actionNode a ir:ResponseAction ; ir:forIncident ex:INC001 ;
+              rdfs:label ?action ; ir:executor ?executorAssignment ; ir:governedBy ?policy .
+  ?executorAssignment ir:forIncident ex:INC001 ; ir:assignedActor ?executorNode .
+  ?executorNode rdfs:label ?executor .
+  ?policy ir:requiredApproverRole ?role ; ir:requiredExecutorRole ?executorRole .
+  ?executorAssignment ir:assignedRole ?executorRole .
+  ?role rdfs:label ?approverRole .
+  OPTIONAL {
+    ?approverAssignment ir:forIncident ex:INC001 ; ir:assignedRole ?role ; ir:assignedActor ?approverNode .
+    ?approverNode rdfs:label ?approverName .
+    OPTIONAL {
+      ?grant a ir:Approval ; ir:forAction ?actionNode ;
+             ir:approvedBy ?approverAssignment ; ir:decision "Granted" ; ir:recordedAt ?when .
+    }
+  }
+  BIND(COALESCE(?approverName, "No one assigned") AS ?approver)
+  BIND(IF(BOUND(?grant), "Matching grant recorded", "No matching grant recorded") AS ?decisionState)
+} ORDER BY ?action

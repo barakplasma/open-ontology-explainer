@@ -1,0 +1,11 @@
+sequenceDiagram
+    autonumber
+    participant agent as AI agent
+    participant vocab as Vocabulary check
+    participant shacl as SHACL validator
+    participant app as Your application
+    agent->>vocab: Check the predicate
+    vocab-->>app: Declared field
+    agent->>shacl: Check value constraints
+    shacl-->>app: Data conforms
+    app-->>agent: Accept checked facts

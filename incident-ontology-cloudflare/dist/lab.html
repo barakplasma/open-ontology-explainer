@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Learn Open Ontologies through interactive participant diagrams. Reuse Schema.org and PROV-O, query facts, validate data, reason and preview changes.">
+  <meta name="theme-color" content="#f7f8f5">
+  <title>Open Ontologies Lab · A visual guide</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/sequence.css">
+  <script src="/sequence-app.js" type="module"></script>
+</head>
+<body>
+  <a class="skip-link" href="#lesson">Skip to lesson</a>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="Open Ontologies Lab home"><span class="brand-symbol" aria-hidden="true">◈</span><span>Open Ontologies Lab<span class="brand-sub">← Manager’s guide</span></span></a>
+    <div class="header-actions"><span class="fiction-pill"><span></span>Schema.org + PROV-O</span><a class="download" href="/download/security-incident-ontology.zip?v=public-vocab" download>Download lab <span aria-hidden="true">↗</span></a></div>
+  </header>
+  <main>
+    <section class="intro">
+      <div class="eyebrow">OPEN ONTOLOGIES / LEARN THROUGH PARTICIPANTS</div>
+      <h1>From definitions to answers.</h1>
+      <p>Follow agents, public vocabularies and the engine through six interactive participant diagrams.</p>
+    </section>
+    <nav class="lessons" aria-label="Visual lessons">
+      <button data-lesson="concepts"><span>01</span>Concepts</button>
+      <button data-lesson="reuse"><span>02</span>Public terms</button>
+      <button data-lesson="query"><span>03</span>Query</button>
+      <button data-lesson="validate"><span>04</span>Validate</button>
+      <button data-lesson="reason"><span>05</span>Reason</button>
+      <button data-lesson="plan"><span>06</span>Plan changes</button>
+    </nav>
+    <section class="workspace" id="lesson" aria-labelledby="lesson-title">
+      <div class="map-pane">
+        <div class="map-heading"><div><span id="lesson-kicker" class="eyebrow"></span><h2 id="lesson-title"></h2></div><button id="reset-view" class="quiet-button" aria-label="Reset the current lesson">Reset ↺</button></div>
+        <p id="lesson-description" class="map-description"></p>
+        <div id="lesson-controls" class="lesson-controls"></div>
+        <div class="sequence-toolbar"><span id="step-counter">Loading lesson…</span><div class="sequence-buttons"><button id="step-back" aria-label="Previous message">←</button><button id="step-next">Next message →</button><button id="show-all" aria-pressed="false">Show all</button><button id="fit-diagram" aria-pressed="false">Fit</button></div></div>
+        <div id="graph-container" class="graph-container" aria-label="Interactive participant sequence diagram">
+          <svg id="graph" role="group" aria-labelledby="graph-title graph-desc"><title id="graph-title"></title><desc id="graph-desc"></desc></svg>
+        </div>
+        <div class="map-caption"><span class="tap-dot" aria-hidden="true"></span><span id="map-caption">Time flows down. Select a message to inspect the operation.</span><span id="graph-key" class="graph-key"></span></div>
+      </div>
+      <aside id="inspector" class="inspector" aria-label="Selected message details" aria-live="polite"></aside>
+    </section>
+    <section id="takeaway" class="takeaway" aria-live="polite"></section>
+    <div class="lesson-footer"><button id="previous" class="text-button">← Previous</button><span id="progress"></span><button id="next" class="primary-button">Next lesson →</button></div>
+    <section class="under-the-map" aria-label="How this example works">
+      <div class="small-note"><span class="note-icon" aria-hidden="true">◇</span><p><strong>Open Ontologies is the engine.</strong> Schema.org and PROV-O provide shared vocabulary. Our incident data supplies concrete examples.</p></div>
+      <div class="vocabulary-shelf" aria-label="Public vocabulary used in this lab"><div><span class="vocab-origin">SCHEMA.ORG</span><a href="https://schema.org/Person" target="_blank" rel="noopener">Person ↗</a><a href="https://schema.org/Organization" target="_blank" rel="noopener">Organization ↗</a><a href="https://schema.org/OrganizationRole" target="_blank" rel="noopener">OrganizationRole ↗</a><a href="https://schema.org/Action" target="_blank" rel="noopener">Action ↗</a></div><div><span class="vocab-origin">W3C PROV-O</span><a href="https://www.w3.org/TR/prov-o/#Entity" target="_blank" rel="noopener">Entity ↗</a><a href="https://www.w3.org/TR/prov-o/#wasDerivedFrom" target="_blank" rel="noopener">wasDerivedFrom ↗</a><a href="https://www.w3.org/TR/prov-o/#wasAttributedTo" target="_blank" rel="noopener">wasAttributedTo ↗</a></div><div><span class="vocab-origin local">OUR EXTENSION</span><span>ir:IncidentAssignment</span><span>ir:forIncident</span><span>ir:ResponseAction</span></div></div>
+      <details id="source-details"><summary>Inspect the sources <span aria-hidden="true">+</span></summary><div class="source-content"><p>Inspect the public definitions, our extensions, instance facts, SHACL shapes and recorded Open Ontologies v2.1.0 results.</p><div class="source-buttons"><button data-source="public">Public definitions</button><button data-source="ontology">Our extensions</button><button data-source="facts">Instance facts</button><button data-source="shapes">Validation rules</button><button data-source="results">Recorded results</button><button data-source="diagram">Participant diagram source</button><a href="/download/security-incident-ontology.zip?v=public-vocab" download>Full runnable example ↗</a></div><pre id="source-code" tabindex="0"></pre><p class="fine-print">The diagrams replay or illustrate library operations. Native outputs are recorded from the released Rust engine; the website does not run that engine. Public definitions are an attributed, locally pinned subset, not full vocabulary imports. Inference certificates were generated; the independent checker could not start in this environment, so no formal verification is claimed.</p></div></details>
+    </section>
+  </main>
+  <footer class="site-footer"><span>Shared definitions. Inspectable facts. Explicit operations.</span><a href="https://github.com/fabio-rovai/open-ontologies" target="_blank" rel="noopener noreferrer">Built around Open Ontologies ↗</a></footer>
+  <div id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

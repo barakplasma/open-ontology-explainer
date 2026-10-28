@@ -1,0 +1,10 @@
+PREFIX ir: <https://example.org/incident#>
+PREFIX ex: <https://example.org/demo/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?finding ?status ?evidence ?source ?observedAt ?analyst WHERE {
+  ?findingNode a ir:Finding ; ir:forIncident ex:INC001 ; ir:statement ?finding ;
+               ir:findingStatus ?status ; ir:supportedBy ?evidenceNode ; ir:assertedBy ?assignment .
+  ?evidenceNode rdfs:label ?evidence ; ir:sourceId ?source ; ir:observedAt ?observedAt .
+  ?assignment ir:assignedActor ?person .
+  ?person rdfs:label ?analyst .
+}
